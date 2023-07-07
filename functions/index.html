@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Calculadora de Parábolas Cuadráticas</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.1.7/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <html data-theme="cupcake">
+    </html>
+</head>
+
+<body>
+    <p>$$ax^2 + bx + c = 0$$</p>
+    <article class="prose">
+        <div>
+            <label for="a">Coeficiente A:</label>
+            <input type="number" id="a" class="input input-bordered input-secondary w-28 max-w-xs" />
+        </div>
+        <br>
+        <div>
+            <label for="b">Coeficiente B:</label>
+            <input type="number" id="b" class="input input-bordered input-secondary w-28 max-w-xs" />
+        </div>
+        <br>
+        <div>
+            <label for="c">Coeficiente C:</label>
+            <input type="number" id="c" class="input input-bordered input-secondary w-28 max-w-xs" />
+        </div>
+        
+        <div style="display: grid;
+        place-content: center;
+        margin: 20px;">
+            <button onclick="updateGraph()" class="btn btn-outline">Calcular</button>
+        </div>
+    </article>
+    <div id="grid graph-container grid">
+        <canvas id="graph" height="400"></canvas>
+    </div><br>
+    <p class="text-lg">Definición de la gráfica</p><br>
+    <input type="range" id="myRange" class="range" min="0.1" max="1" step="0.1" value="0.1">
+    <br>
+    <br>
+    <div class="border-solid border-2 border-red-950">
+        <p class="text-2xl font-bold">Resultados:</p>
+        <br>
+        <!-- ordenada -->
+        <p class="marginBotLeft"> Dominio: Reales</p>
+        <p class="marginBotLeft"> Imagen: (<span id="image"></span>)</p>
+        <p class="marginBotLeft"> C+ <span id="x-interceptVal"></span></p><!--C+-->
+        <p class="marginBotLeft"> C- <span id="x-intercept"></p>
+        <p class="marginBotLeft"> Del Punto del vértice XvY: <span id="parabola-direction"></span> (a partir del
+            vértice)</p>
+        <p class="marginBotLeft"> C⇂ <span id="decrease-set"></span></p>
+        <p class="marginBotLeft"> C↾ <span id="growth-set"></span></p>
+        <p class="marginBotLeft"> C°: <span id="zero-set"></span></p>
+        <p class="marginBotLeft"> Vértice: (<span id="x-vertex"></span>, <span id="y-vertex"></span>)</p>
+        <p class="marginBotLeft"> La Ordenada al origen: <span id="origin"></span></p>
+        <p class="marginBotLeft"> Intersección con los ejes (XvY): <span id="zero-setEjes"> ;</span><span
+                id="y-intercept"></span></p>
+    </div>
+
+    <ul>
+        <p class="text-2xl">Explicación y Fórmulas</p><br>
+        <li>La ecuación/Función cuadrática <b>ax² + bx + c = 0 </b>es una ecuación polinómica de segundo grado, donde:
+            <br>
+            <br>
+            <b style="color: red;">a</b>, <b style="color: blue;">b</b> y <b style="color: green;">c</b> son
+            coeficientes
+            numéricos, con <b>a ≠ 0.</b>
+            X es la variable de la ecuación.
+            <br>
+            <br>
+            <b class="text-2xl font-bold">Cada parte de la ecuación tiene un significado específico:</b>
+            <br>
+            <br>
+            El término ax² representa el coeficiente del término cuadrático de la ecuación.<br>
+            El término bx representa el coeficiente del término lineal de la ecuación.<br>
+            El término c representa el término constante de la ecuación.<br>
+            <br>
+            La ecuación cuadrática se puede resolver para encontrar los valores de x que hacen que la ecuación sea igual
+            a cero, es decir, las raíces de la ecuación. Las raíces de la ecuación cuadrática son los valores de x donde
+            la parábola que representa la ecuación cruza el eje x. A continuación se muestra la fórmula para calcular
+            las raíces:
+            <p>
+                \[x = {-b \pm \sqrt{a^2-4.a.c} \over 2a}\]
+            </p>
+        </li>
+    </ul>
+    <br>
+    <!--MITAD-->
+    <b>
+        <p class="text-2xl">Fórmulas de Xvértice e Yvértice y C</p><br>
+    </b>
+    <p>Para encontrar el vértice de una función cuadrática, se pueden utilizar las siguientes fórmulas:<br>
+        <b>
+            <br>Fórmula para encontrar el valor de x del vértice: $$x = -\frac{b}{2a}$$
+            <br>Fórmula para encontrar el valor de y del vértice (reemplaza los valores de X): $$y = f(x)\left(-\frac{b}{2a}\right)$$, donde f es la función cuadrática.
+            <br>El significado de <b>C</b> es el valor donde pasará la parábola del eje Y<br>
+        </b>
+        Es importante tener en cuenta que el vértice de una función cuadrática es el punto más alto o más bajo de la
+        gráfica correspondiente a dicha función, y se encuentra en el plano de simetría de la parábola. La fórmula para
+        encontrar el valor de x del vértice se utiliza para determinar dónde se encuentra el eje de simetría de la
+        ecuación (x), mientras que la fórmula para encontrar el valor de y del vértice se utiliza para determinar la
+        altura del vértice.
+    </p>
+    <br><b>
+        <p class="text-2xl">Conjuntos (C+/-, C ↾/⇂ , C°)</p>
+    </b>
+    <p><br>
+        <b>Conjunto de positividad y negatividad (C+/-):</b> se refiere a los valores de la función cuadrática en
+        relación con el eje x. Si la función es positiva en un intervalo, significa que los valores de la función en ese
+        intervalo son mayores que cero. Si la función es negativa en un intervalo, significa que los valores de la
+        función en ese intervalo son menores que cero. El conjunto de positividad y negatividad se puede determinar
+        analizando los signos de los coeficientes de la función cuadrática y utilizando la fórmula del vértice1
+        .<br><br>
+        <b>Conjunto de crecimiento y decrecimiento (C ↾/⇂):</b> se refiere a la dirección en la que la función
+        cuadrática aumenta o disminuye. Si la función es creciente en un intervalo, significa que los valores de la
+        función en ese intervalo aumentan a medida que x aumenta. Si la función es decreciente en un intervalo,
+        significa que los valores de la función en ese intervalo disminuyen a medida que x aumenta. El conjunto de
+        crecimiento y decrecimiento se puede determinar analizando el signo del coeficiente a de la función cuadrática2
+        .<br><br>
+        <b>Conjunto de 0 (C°):</b> se refiere a los valores de x donde la función cuadrática es igual a cero. Estos
+        valores se conocen como las raíces de la función cuadrática y se pueden encontrar utilizando la fórmula
+        cuadrática o completando el cuadrado.
+        .<br><br>
+    </p>
+    <b>
+        <p class="text-2xl">Vértices y Ordenada al Origen</p>
+    </b><br>
+    <p><b>Vértice Xv:</b> En términos simples, se refiere a la mitad de la parábola y donde irá el vértice o "línea
+        auxiliar".<br>
+        <b>Vértice Yv:</b> En términos simples, se refiere al punto más alto o profundo que puede llegar la punta de la
+        parábola.<br>
+        <b>Ordenada al Origen:</b> Es el punto (Valor de C) donde pasará por el eje Y, la parábola.<br>
+    </p>
+    <b>
+        <p class="text-2xl">Pasaje de ecuación canónica a polinómica</p>
+    </b><br>
+    <!--CANÓNICA-->
+    <p>
+        Para pasar de la ecuación canónica a la polinómica en una función cuadrática, se pueden seguir los siguientes
+        pasos:<br>
+        <b>
+            <br>Expandir los términos dentro de los paréntesis en la ecuación canónica.
+            <br>Simplificar los términos semejantes.
+            <br>Ordenar los términos en orden descendente de exponentes.
+            <br><br>
+        </b>
+        Por ejemplo, si se tiene la ecuación canónica
+    <p>$$f(x) = a(x - h)^2 + k$$</p>se puede expandir y simplificar para
+    obtener la ecuación polinómica<br> $$f(x) = ax^2 - 2ahx + ah^2 + k$$<br>
+    Es importante tener en cuenta que estos pasos son una guía general y que pueden variar dependiendo de la forma
+    específica de la ecuación canónica. Además, existen diferentes recursos en línea, como videos y tutoriales, que
+    pueden ayudar a entender mejor el proceso de conversión.
+    </p>
+    <!--FACTORIZADA-->
+    <p class="text-2xl">Pasaje de ecuación factorizada a polinómica</p>
+    <p>
+        Para pasar de una ecuación factorizada a polinómica, se pueden seguir los siguientes pasos:
+        <b>
+            <br><br>Identificar los factores de la ecuación factorizada.
+            <br><br>Multiplicar los factores utilizando la propiedad distributiva.
+            <br><br>Simplificar los términos semejantes.
+            <br><br>Ordenar los términos en orden descendente de exponentes.
+        </b>
+        Por ejemplo, si se tiene la ecuación factorizada
+    <p>$$f(x) = a(x - r)(x - s)$$</p> se puede multiplicar los factores para obtener la ecuación polinómica <p>$$f(x) =
+        ax^2 - a(r + s)x + ars$$</p>
+
+    Es importante tener en cuenta que estos pasos son una guía general y que pueden variar dependiendo de la forma
+    específica de la ecuación factorizada. Además, existen diferentes recursos en línea, como videos y tutoriales, que
+    pueden ayudar a entender mejor el proceso de conversión.
+    </p>
+    <br>
+    <script src="index.js">
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Dos Puntos</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" type="text/css" href="./styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.1.7/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <html data-theme="cupcake">
+</head>
+<body>
+    <p>
+        $$\frac{y_2 - y_1}{x_2 - x_1}$$
+    </p>
+<div>
+    <label for="yone">Valor de Y1</label>
+    <input type="number" id="yone" class="input input-bordered input-info w-28 max-w-xs">
+</div>
+<div>
+    <label for="ytwo">Valor de Y2</label>
+    <input type="number" id="ytwo" class="input input-bordered input-info w-28 max-w-xs">
+</div>
+<div>
+    <label for="xone">Valor de X1</label>
+    <input type="number" id="xone" class="input input-bordered input-info w-28 max-w-xs">
+</div>
+<div>
+    <label for="xtwo">Valor de X2</label>
+    <input type="number" id="xtwo" class="input input-bordered input-info w-28 max-w-xs">
+</div>
+
+<div style="display: grid;
+    place-content: center;
+    margin: 20px;">
+    <button onclick="updateChart()" class="btn btn-outline">Calcular</button>
+</div>
+<div class="columns-2">
+    <button id="ejeX" class="btn btn-outline btn-info">Mostrar Eje X</button><br><br>
+    <button id="ejeY" class="btn btn-outline btn-info">Mostrar Eje Y</button>
+    <button id="toggleButton" class="btn btn-outline btn-info">Mostrar Recta</button><br><br>
+    <button id="points" class="btn btn-outline btn-info">Mostrar Puntos</button>
+</div>
+    <br><br>
+    <canvas id="graph" height="300px"></canvas>
+
+    <b><p class="text-2xl">Resultado: </p></b>
+    <p>
+        Ecuacion: <p id="rect"></p>
+    </p>
+    <b><p class="text-2xl">Función Lineal</p></b>
+    <br>
+    <p>
+        Para calcular la recta que une dos puntos en el plano cartesiano, se pueden seguir los siguientes pasos:
+
+    <br><br><b>Identificar los dos puntos:</b> Se deben identificar los dos puntos que se quieren unir con la recta. Cada punto se representa por un par ordenado de la forma (x, y).
+    <br><br><b>Calcular la pendiente:</b> La pendiente de la recta se calcula utilizando la fórmula <p>$$m = \frac{y_2 - y_1}{x_2 - x_1}$$</p> donde <p>$$(x1, y1) ; (x2, y2)$$</p> son los dos puntos que se quieren unir.
+    <br><br><b>Calcular la ordenada al origen:</b> La ordenada al origen de la recta se calcula utilizando la fórmula <p>$$b = y1 - m * x1$$</p> donde m es la pendiente y (x1, y1) es uno de los dos puntos que se quieren unir.
+    <br><br><b>Escribir la ecuación de la recta:</b> La ecuación de la recta se escribe en la forma <p>$$y = mx + b$$</p> donde m es la pendiente y b es la ordenada al origen.
+
+En resumen, para calcular la recta que une dos puntos en el plano cartesiano, se deben identificar los dos puntos, calcular la pendiente y la ordenada al origen, y luego escribir la ecuación de la recta en la forma <p>$$y = mx + b$$</p>
+    </p>
+    <script src="index.js"></script>
+</body>
+</html>

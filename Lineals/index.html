@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Lineales</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.1.7/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <html data-theme="cupcake">
+</head>
+
+<body>
+
+
+    <div>
+        <div>
+            <label for="input-a">Coeficiente a:</label>
+            <input type="number" id="input-a" class="input input-bordered input-info w-28 max-w-xs" />
+        </div>
+        <br>
+        <div>
+            <label for="input-b">Coeficiente b:</label>
+            <input type="number" id="input-b" class="input input-bordered input-info w-28 max-w-xs" />
+        </div>
+        <br>
+        <button onclick="updateChart()" class="btn btn-outline btn-primary">Graficar</button>
+        <br>
+        <br>
+    </div>
+    <canvas id="graph" height="200px"></canvas>
+    <br>
+<div class="order-solid border-2 border-red-950">
+<b><p class="text-2xl">Resultado:</p></b>
+
+    <p id="xCrossings"></p>
+    <p id="yCrossings"></p>
+    <p id="image"></p>
+    <p id="zeros"></p>
+    <p id="idcre"></p>
+    <p id="iddecre"></p>
+    <p id="concre"></p>
+    <p id="condecre"></p>
+    <br>
+</div>
+<br>
+    <b>
+        <p class="text-2xl">Funciones Lineales</p>
+    </b>
+    <br>
+    <p>
+        Las funciones lineales se pueden resolver utilizando los siguientes pasos:
+
+        Definir la función lineal en su forma general:
+    <p>$$f(x) = mx + n$$</p> donde <b>m</b> es la pendiente y <b>n</b> es la ordenada al origen.
+    <br><br>Calcular la pendiente m de la función lineal. La pendiente es el coeficiente de la variable x.
+    <br><br>Calcular la ordenada al origen n de la función lineal. La ordenada al origen es el valor de f(x) cuando x =
+    0.
+    <br><br>Graficar la función lineal utilizando la pendiente y la ordenada al origen.
+    <br><br>Calcular los puntos de intersección de la función lineal con los ejes X e Y. El punto de intersección con el
+    eje X es aquel en el que f(x) = 0, y el punto de intersección con el eje Y es aquel en el que x = 0.
+    <br><br>Calcular la función lineal que pasa por dos puntos dados. Para ello, se pueden utilizar las coordenadas de
+    los dos puntos y resolver el sistema de ecuaciones.
+
+    En resumen, las funciones lineales se pueden resolver utilizando la fórmula <p>$$f(x) = mx + n$$</p>, donde m es la
+    pendiente y n es la ordenada al origen. Además, se pueden calcular los puntos de intersección con los ejes X e Y y
+    la función lineal que pasa por dos puntos dados.
+    </p>
+    <br>
+    <b><p class="text-2xl">Significado de las propiedades</p></b>
+    <p>
+
+        <br><b>Image:</b> La imagen de una función lineal es el conjunto de todos los valores que puede tomar la función. En otras palabras, es el conjunto de todos los valores de y que se pueden obtener al evaluar la función para diferentes valores de x.
+        <br><br><b>Conjunto de ceros:</b> El conjunto de ceros de una función lineal es el conjunto de valores de x para los cuales la función es igual a cero. En otras palabras, son los valores de x que hacen que la función cruce el eje X.
+        <br><br><b>Índice de crecimiento/decrecimiento:</b> El índice de crecimiento/decrecimiento de una función lineal es la pendiente de la recta que representa la función. Si la pendiente es positiva, la función está creciendo, y si la pendiente es negativa, la función está decreciendo.
+        <br><br><b>Ordenada al origen:</b> La ordenada al origen de una función lineal es el valor de y cuando x es igual a cero. En otras palabras, es el punto en el que la recta que representa la función cruza el eje Y.
+        <br><br><b>Conjunto de positividad/negatividad:</b> El conjunto de positividad/negatividad de una función lineal es el conjunto de valores de x para los cuales la función es positiva o negativa. Si la función es positiva, significa que los valores de y son mayores que cero para los valores correspondientes de x. Si la función es negativa, significa que los valores de y son menores que cero para los valores correspondientes de x.
+
+    </p>
+    <script src="index.js"></script>
+</body>
+
+</html>
