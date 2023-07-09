@@ -35,7 +35,7 @@ function updateChart() {
   };
 
 
-  document.getElementById("rect").innerHTML = `$$f(x) = ${m}x ${n > 0 ? "+" : "-"} ${n}$$`
+  document.getElementById("rect").innerHTML = `<p> $$f(x) = ${m}x ${n > 0 ? "+" : "-"} ${n}$$</p>`
   // Datos de la recta
   var lineData = [];
   console.log(lineData)
@@ -153,19 +153,19 @@ var ejeY = document.getElementById("ejeY");
 ejeY.addEventListener("click", function() {
   showLineejeY = !showLineejeY;
   updateChart();
-  ejeY.textContent = showLineejeY ? "Ocultar Recta" : "Mostrar Recta";
+  ejeY.textContent = showLineejeY ? "Ocultar EjeY" : "Mostrar EjeY";
 });
 
 var ejeX = document.getElementById("ejeX");
 ejeX.addEventListener("click", function() {
   showLine = !showLine;
   updateChart();
-  ejeX.textContent = showLine ? "Ocultar Recta" : "Mostrar Recta";
+  ejeX.textContent = showLine ? "Ocultar EjeX" : "Mostrar EjeX";
 });
 
 var points = document.getElementById("points");
 points.addEventListener("click", function() {
   showLinepoints = !showLinepoints;
   updateChart();
-  points.textContent = showLinepoints ? "Ocultar Recta" : "Mostrar Recta";
+  points.textContent = showLinepoints ? "Ocultar Puntos" : "Mostrar Puntos";
 });

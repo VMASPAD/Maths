@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Calculadora de Homograficas</title>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom"></script>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet" type="text/css" href="./styles.css">
+        <link href="https://cdn.jsdelivr.net/npm/daisyui@3.1.7/dist/full.css" rel="stylesheet" type="text/css" />
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <html data-theme="cupcake">
+    </head>
+    <body>
+        <div>
+          <label for="input-a">Valor de a:</label>
+          <input type="number" id="input-a" class="input input-bordered input-primary w-full max-w-xs" /">
+        </div>
+        <div>
+          <label for="input-b">Valor de b:</label>
+          <input type="number" id="input-b" class="input input-bordered input-primary w-full max-w-xs">
+        </div>
+        <div>
+          <label for="input-c">Valor de c:</label>
+          <input type="number" id="input-c" class="input input-bordered input-primary w-full max-w-xs">
+        </div>
+        <div>
+          <label for="input-d">Valor de d:</label>
+          <input type="number" id="input-d" class="input input-bordered input-primary w-full max-w-xs">
+        </div>
+        <div>
+            <button onclick="updateChart()" class="btn btn-outline btn-info">Actualizar Gráfica</button>
+        </div>
+        <canvas id="graph" height="300px"></canvas>
+
+        <script src="index.js">
+          
+        </script>
+      </body>
+      </html>
+      
