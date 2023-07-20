@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Logaritmos</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" type="text/css" href="./styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.1.7/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <html data-theme="cupcake">
+</head>
+<body>
+    <p>$$\log_b(x\cdot y) = \log_b(x) + \log_b(y)$$</p>
+    <p>$$\log_b(x/y) = \log_b(x) - \log_b(y)$$</p>
+    <p>$$\log_b(x^y) = y\cdot \log_b(x)$$</p>
+    <a href="#graphLog" class="link link-neutral">Queres graficar?</a><br>
+    
+    <br><br>
+    
+    <label for="number1">Valor de X:</label>
+    <input type="number" id="number1" class="input input-bordered input-info w-28 max-w-xs">
+    
+    <br><br>
+    <label for="number1">Igual Base:</label>
+    <input type="number" id="base" class="input input-bordered input-info w-28 max-w-xs">
+    <br><br>
+    <label for="number2">Valor de Y:</label>
+    <input type="number" id="number2" class="input input-bordered input-info w-28 max-w-xs">
+    
+    <br><br>
+    
+    <button onclick="calculate()" class="btn btn-outline">Calcular</button>
+    
+    <br><br>
+    
+    <b><h2 class="text-4xl">Resultados:</h2></b><br>
+   <p id="result" class="text-2xl"></p>
+   <br>
+<p>Los logaritmos son una herramienta matemática que se utilizan para simplificar cálculos y resolver ecuaciones. Un logaritmo es el exponente al que se debe elevar una base para obtener un número determinado. La expresión general de un logaritmo es $$\log_{a}(x)$$, donde "a" es la base y "x" es el número al que se le está calculando el logaritmo. Las propiedades de los logaritmos son reglas que se utilizan para simplificar cálculos y resolver ecuaciones. Algunas de las propiedades más comunes son:
+
+  El logaritmo de un producto es igual a la suma de los logaritmos de los factores: $$\log_{a}(x\cdot y) = \log_{a}(x) + \log_{a}(y)$$.
+  El logaritmo de un cociente es igual a la diferencia de los logaritmos del dividendo y el divisor: $$\log_{a}(\frac{x}{y}) = \log_{a}(x) - \log_{a}(y)$$.
+  El logaritmo de una potencia es igual al producto del exponente y el logaritmo de la base: $$\log_{a}(x^{n}) = n\cdot \log_{a}(x)$$.
+  El logaritmo de una raíz es igual al cociente entre el logaritmo del radicando y el índice de la raíz: $$\log_{a}(\sqrt[n]{x}) = \frac{1}{n}\cdot \log_{a}(x)$$.
+
+Estas propiedades se pueden utilizar para simplificar cálculos y resolver ecuaciones que involucren logaritmos. Por ejemplo, si se tiene la ecuación $$\log_{2}(x) + \log_{2}(y) = 4$$, se puede utilizar la propiedad de la suma de logaritmos para escribir la ecuación como $$\log_{2}(x\cdot y) = 4$$. Luego, se puede utilizar la propiedad del logaritmo de un producto para escribir la ecuación como $$x\cdot y = 2^{4} = 16$$. En resumen, los logaritmos son una herramienta matemática que se utilizan para simplificar cálculos y resolver ecuaciones. Las propiedades de los logaritmos son reglas que se utilizan para simplificar cálculos y resolver ecuaciones que involucren logaritmos.</p>
+   <p class="text-2xl" id="graphLog">Graficadora de funciones Logaritmicas</p>
+
+    <p>Ejemplo:$$f(x) = a \cdot \log_{b}(x-c) - d$$</p>
+
+    <label for="number2">Valor de A:</label>
+    <input type="number" id="input-a" class="input input-bordered input-info w-28 max-w-xs">
+      <select id="operation-selectA" class="select select-bordered">
+      <option value="*">*</option>
+      <option value="/">/</option>
+      <option value="+">+</option>
+      <option value="-">-</option>
+    </select>
+    <br><br>
+    <label for="number2">Valor de B:</label>
+    <input type="number" id="input-b" class="input input-bordered input-info w-28 max-w-xs"><br>
+<br>
+    <label for="number2">Valor de C:</label>
+    <input type="text" id="input-c" class="input input-bordered input-info w-28 max-w-xs"><br>
+    <br>
+    <label for="number2">Valor de D:</label>
+    <select id="operation-selectB" class="select select-bordered">
+        <option value="*">*</option>
+        <option value="/">/</option>
+        <option value="+">+</option>
+        <option value="-">-</option>
+      </select>
+    <input type="number" id="input-d" class="input input-bordered input-info w-28 max-w-xs"><br>
+<br>
+    <button onclick="calc()" class="input input-bordered input-info w-28 max-w-xs">Calcular Gráfico</button>
+
+  <canvas id="chart" height="400"></canvas>
+  <br>
+
+<div class="border-2 border-fuchsia-400">
+    <b><p class="text-2xl">Resultados: </p></b>
+  <p id="Dom"></p>
+  <p id="Img">Reales</p>
+  <p id="Cplus"></p>
+  <p id="Crest"></p>
+  <p id="Cup"></p>
+  <p id="Cdpwn"></p>
+  <p id="Czero"></p>
+  <p id="AV"></p>
+  <p id="AH">Asintota horizontal: ∄</p>
+  <p id="AO">Asintota Oblicua: ∄</p>
+  <p id="ORDO"></p>
+  <p id="IEjes"></p>
+  <p id="Seje">Eje de simetria: ∄</p>
+  <p id="Vertice">Vertice: ∄</p>
+</div>
+<br>
+  <b><p class="text-2xl">Como se resuelven las funciones logaritmicas?</p></b><br>
+  <p class="text-justify">Para resolver una ecuación logarítmica, se deben seguir los siguientes pasos:
+
+   <br> 1. Identificar la ecuación logarítmica: Una ecuación logarítmica es aquella en la que la incógnita aparece dentro del argumento de un logaritmo.
+    
+   <br>2. Aplicar las propiedades de los logaritmos: Utilizar las propiedades de los logaritmos para simplificar la ecuación y despejar la incógnita. Algunas propiedades comunes son:
+    
+       - $$\log_{a}(x\cdot y) = \log_{a}(x) + \log_{a}(y)$$: La suma de dos logaritmos es igual al logaritmo del producto de los argumentos.
+       - $$\log_{a}(\frac{x}{y}) = \log_{a}(x) - \log_{a}(y)$$: La resta de dos logaritmos es igual al logaritmo del cociente de los argumentos.
+       - $$\log_{a}(x^{n}) = n\cdot \log_{a}(x)$$: El logaritmo de una potencia es igual al exponente multiplicado por el logaritmo del número base.
+    
+       <br>3. Resolver la ecuación simplificada: Una vez que se ha simplificado la ecuación utilizando las propiedades de los logaritmos, se puede resolver la ecuación resultante para encontrar el valor de la incógnita.
+    
+    A continuación, se presenta un ejemplo de cómo resolver una ecuación logarítmica utilizando estos pasos:
+    
+    Ejemplo: Resolver la ecuación $$\log_{2}(x+3) + \log_{2}(x-3) = 2$$
+    
+    <br>1. Identificar la ecuación logarítmica: La ecuación es logarítmica porque la incógnita "x" aparece dentro del argumento de dos logaritmos.
+    
+    <br>2. Aplicar las propiedades de los logaritmos: Utilizando la propiedad de la suma de logaritmos, se puede simplificar la ecuación:
+    
+       $$\log_{2}((x+3)(x-3)) = 2$$
+    
+       Luego, utilizando la propiedad del logaritmo de una potencia, se puede simplificar aún más:
+    
+       $$\log_{2}(x^{2}-9) = 2$$
+    
+    <br>3. Resolver la ecuación simplificada: Para resolver la ecuación, se puede utilizar la propiedad inversa del logaritmo, que indica que $a^{\log_{a}(x)} = x$. Aplicando esta propiedad, se puede escribir la ecuación como:
+    
+       $$2^{2} = x^{2}-9$$
+    
+       Resolviendo para "x", se obtiene:
+    
+       $$x^{2} = 13$$
+    
+       $$x = \pm\sqrt{13}$$
+    
+       Sin embargo, es importante tener en cuenta las restricciones de los logaritmos, como que el argumento del logaritmo debe ser positivo. En este caso, el argumento del logaritmo es $$x^{2}-9$$, por lo que se debe tener en cuenta que $$x^{2}-9 > 0$$. Esto significa que $$x > 3$$ o $$x < -3$$. Por lo tanto, la solución válida es $$x = \sqrt{13}$$.
+    
+    En resumen, para resolver una ecuación logarítmica, se deben identificar la ecuación logarítmica, aplicar las propiedades de los logaritmos para simplificar la ecuación y luego resolverla para encontrar el valor de la incógnita. Es importante tener en cuenta las restricciones de los logaritmos y comprobar las soluciones obtenidas.
+
+  <script src="grahplog.js"></script>
+  <script src="calclog.js"></script>
+</body>
+</html>

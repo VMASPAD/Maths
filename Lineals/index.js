@@ -1,5 +1,25 @@
 var chart;
 
+
+
+function addData(color, funcion) {
+  var dataTable = document.getElementById("data-table");
+  var newRow = dataTable.insertRow();
+  var colorCell = newRow.insertCell();
+  var funcionCell = newRow.insertCell();
+  var eliminarCell = newRow.insertCell();
+
+  colorCell.textContent = color;
+  funcionCell.textContent = funcion;
+
+  var eliminarButton = document.createElement("button");
+  eliminarButton.textContent = "Eliminar";
+  eliminarButton.addEventListener("click", function() {
+    dataTable.deleteRow(newRow.rowIndex);
+  });
+  eliminarCell.appendChild(eliminarButton);
+}
+
 function updateChart() {
   var a = parseFloat(document.getElementById("input-a").value);
   var b = parseFloat(document.getElementById("input-b").value);
@@ -10,6 +30,7 @@ function updateChart() {
     chart.destroy();
   }
 
+
   chart = new Chart(ctx, {
     type: "line",
     data: {
@@ -18,8 +39,8 @@ function updateChart() {
         {
           label: "Ecuación Lineal",
           data: [
-            { x: -40, y: a * -10 + b },
-            { x: 40, y: a * 10 + b }
+            { x: 0, y: a * 0 + b },
+            { x:  -b / a , y: 0 }
           ],
           borderColor: "blue",
           fill: false
@@ -45,8 +66,8 @@ function updateChart() {
         x: {
           type: "linear",
           position: "bottom",
-          min: -40,
-          max: 40,
+          min: -10,
+          max: 10,
           ticks: {
             stepSize: 1
           }
@@ -54,8 +75,8 @@ function updateChart() {
         y: {
           type: "linear",
           position: "left",
-          min: -40,
-          max: 40,
+          min: -10,
+          max: 10,
           ticks: {
             stepSize: 1
           }
@@ -118,13 +139,6 @@ function updateChart() {
     xCrossingsText += xCrossings.join(", ");
   }
 
-  var yCrossingsText = "Cruce en eje Y: ";
-  if (yCrossings.length === 0) {
-    yCrossingsText += "Ninguno";
-  } else {
-    yCrossingsText += yCrossings.join(", ");
-  }
-
   document.getElementById("zeros").innerHTML = `C°: {${xCrossing}}`
   document.getElementById("zeros").innerHTML = `Ordenada al origen: {0 ;${b}}`
   
@@ -151,7 +165,33 @@ function updateChart() {
   }
 
   document.getElementById("xCrossings").innerHTML = xCrossingsText;
-  document.getElementById("yCrossings").innerHTML = yCrossingsText;
+  document.getElementById("yCrossings").innerHTML = `Cruce en eje Y: ${b}`;
+
+
+var addLineButton = document.getElementById("graf");
+addLineButton.addEventListener("click", addNewLine());
 }
 
 updateChart();
+async function addNewLine(){
+  var a = parseFloat(document.getElementById("input-a").value);
+  var b = parseFloat(document.getElementById("input-b").value);
+  var newData = [
+    { x: 0, y: a * 0 + b },
+    { x:  -b / a , y: 0 }
+  ];
+  
+  chart.data.datasets.push({
+    label: `${a}x ${b > 0 ? `+${b}` : `${b}`}`,
+    data: newData,
+    borderColor: "#7d3c98",
+    fill: false
+  });
+  chart.update();
+}
+var añadir = document.getElementById("graf");
+    añadir.addEventListener("click", function() {
+      var a = parseFloat(document.getElementById("input-a").value);
+      var b = parseFloat(document.getElementById("input-b").value);
+   addData("purple",`${a}x ${b > 0 ? `+${b}` : `${b}`}`)
+    });

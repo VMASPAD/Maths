@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculadora de Parábolas Cuadráticas</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.1.7/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <html data-theme="cupcake">
+</head>
+<body>
+  <h1>Calculadora Triángulo Rectángulo</h1>
+<div>
+  <label for="sideA">Lado A:</label>
+  <input type="number" id="sideA">
+<br>
+  <label for="sideB">Lado B:</label>
+  <input type="number" id="sideB">
+  <br>
+  <label for="sideC">Lado C:</label>
+  <input type="number" id="sideC">
+  <br>
+  <label for="angleO">Ángulo β:</label>
+  <input type="number" id="angleO">
+  <br>
+  <label for="angleb">Ángulo θ:</label>
+  <input type="number" id="angleb">
+  <br>
+  <label for="sider">Lado α: 90°</label>
+  <p id="Perimetro"></p>
+  <p id="Area"></p>
+</div>
+  <button onclick="calc()">Calcular</button>
+
+  <select id="selecForm" required >
+    <option value="sideAB">sideAB</option>
+    <option value="sideCB">sideCB</option>
+    <option value="sideAC">sideAC</option>
+  </select>
+  <p id="result"></p>
+
+  <script src="script.js"></script>
+</body>
+</html>

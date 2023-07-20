@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Exponenciales</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" type="text/css" href="./styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.1.7/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <html data-theme="cupcake">
+</head>
+<body> 
+    <p>$$a+b^{x + c}+d$$</p>
+    <p>Ejemplo:</p>
+    <p>$$-2 * (\frac{1}{4})^{x - 1} + 4$$</p>
+<div class="">
+    <div>
+        <label for="input-a">Termino A:</label>
+        <input type="text" id="input-a" class="input input-bordered input-info w-28 max-w-xs" required/>
+    </div>
+    <br>
+    <select id="operation-selectA" class="select select-bordered">
+        <option value="*">*</option>
+        <option value="/">/</option>
+        <option value="+">+</option>
+        <option value="-">-</option>
+      </select>
+      <br><br>
+    <div>
+        <label for="input-b">Base:</label>
+        <input type="text" id="input-b" class="input input-bordered input-info w-28 max-w-xs" required/>
+    </div>
+    <br>
+    <div>
+        <label for="input-b">Exponente C:</label>
+        <input type="text" id="input-c" class="input input-bordered input-info w-28 max-w-xs" required/>
+    </div>
+    <br>
+    <select id="operation-selectB" class="select select-bordered">
+        <option value="*">*</option>
+        <option value="/">/</option>
+        <option value="+">+</option>
+        <option value="-">-</option>
+      </select>
+      <br><br>
+    <div>
+        <label for="input-b">Termino D:</label>
+        <input type="text" id="input-d" class="input input-bordered input-info w-28 max-w-xs" required/>
+    </div>
+    <br>
+</div>
+    <button onclick="calc()" class="input input-bordered input-info w-28 max-w-xs">Calc</button>
+
+      <canvas id="myChart" height="400px"></canvas>
+
+    <div class="border-green-500 border-2">
+        <b><p class="text-2xl">Resultado:</p></b>
+        <p id="Dom">Dom: R</p>
+        <p id="Img"></p>
+        <p id="Cplus"></p>
+        <p id="Crest"></p>
+        <p id="Cup"></p>
+        <p id="Cdown"></p>
+        <p id="Czero"></p>
+        <p id="AV">AV: ∄</p>
+        <p id="AH"></p>
+        <p id="AO">AO: ∄</p>
+        <p id="Raiz"></p>
+        <p id="ORDO"></p>
+        <p id="Ejes"></p>
+        <p id="EjeSimetria">Ejede simetria: ∄</p>
+        <p id="Vertice">Vertice: ∄</p>
+</div>
+
+<p class="text-2xl ">Resolución de funciones exponenciales</p>
+<br><p class="text-justify">
+    Para resolver una función exponencial, es importante conocer la forma general de la función y sus características. La forma general de una función exponencial es $$f(x) = a^x$$, donde "a" es un número real positivo llamado base de la función y "x" es una variable real
+    <br>
+    Para resolver una ecuación exponencial, se pueden aplicar las propiedades de las potencias, como la propiedad de la multiplicación de potencias con la misma base y la propiedad de la división de potencias con la misma base. También se pueden utilizar logaritmos para resolver ecuaciones exponenciales más complejas
+    <br> 
+    Por ejemplo, para resolver la ecuación $$2^x = 8$$, se puede utilizar la propiedad de la base para escribir como $$2^3$$. Entonces, la ecuación se convierte en $$2^{x} = 2^{3}$$. Igualando los exponentes, se obtiene $$x = 3$$ como solución
+    <br>
+    En resumen, para resolver una función exponencial, se deben conocer la forma general de la función y sus características. Para resolver una ecuación exponencial, se pueden aplicar las propiedades de las potencias y utilizar logaritmos para ecuaciones más complejas.</p>
+    <br>
+</p>
+      <script src="./index.js"></script>
+</body>
+</html>

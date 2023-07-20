@@ -13,27 +13,87 @@
         <html data-theme="cupcake">
     </head>
     <body>
+      <p>
+        $$f(x) = \frac{ax + b}{cx + d}$$
+      </p>
+      <div>
         <div>
-          <label for="input-a">Valor de a:</label>
-          <input type="number" id="input-a" class="input input-bordered input-primary w-full max-w-xs" /">
+          <label for="input-a">Valor de A:</label>
+          <input type="number" id="input-a" class="input input-bordered input-primary w-28 max-w-xs" >
         </div>
         <div>
-          <label for="input-b">Valor de b:</label>
-          <input type="number" id="input-b" class="input input-bordered input-primary w-full max-w-xs">
+          <label for="input-b">Valor de B:</label>
+          <input type="number" id="input-b" class="input input-bordered input-primary w-28 max-w-xs" >
         </div>
         <div>
-          <label for="input-c">Valor de c:</label>
-          <input type="number" id="input-c" class="input input-bordered input-primary w-full max-w-xs">
+          <label for="input-c">Valor de C:</label>
+          <input type="number" id="input-c" class="input input-bordered input-primary w-28 max-w-xs" >
         </div>
         <div>
-          <label for="input-d">Valor de d:</label>
-          <input type="number" id="input-d" class="input input-bordered input-primary w-full max-w-xs">
+          <label for="input-d">Valor de D:</label>
+          <input type="number" id="input-d" class="input input-bordered input-primary w-28 max-w-xs" >
         </div>
+        <br>
         <div>
-            <button onclick="updateChart()" class="btn btn-outline btn-info">Actualizar Gráfica</button>
+            <button onclick="updateChart()" class="btn btn-outline btn-info" id="updateButton">Calcular</button>
         </div>
+      </div>
+        <br>
         <canvas id="graph" height="300px"></canvas>
 
+
+        <div class="border-2 border-orange-500">
+          <b><p class="text-2xl">Resultados: </p></b>
+          <b><p id="Dom"></p>
+          <p id="Img"></p>
+          <p id="Cplus"></p>
+          <p id="Csub"></p>
+          <p id="Cup"></p>
+          <p id="Cdow"></p>
+          <p id="CZERO"></p>
+          <p id="AV"></p>
+          <p id="AH"></p>
+          <p id="AO"></p>
+          <p id="Rootx"></p>
+          <p id="Ordo"></p>
+          <p id="Iaxis"></p></b>
+        </div>
+    <br>
+
+      <b><p class="text-2xl">Que significan las caracteristicas?</p></b>
+        <p class="text-justify"><br>
+          <br>1) <b>Encontrar el dominio de la función.</b> El dominio de una función racional está formado por todos los números reales x, excepto aquellos para los cuales el denominador es cero. En esos puntos se generan asíntotas verticales.
+          <br>2) <b>Encontrar la imagen de la función.</b> La imagen de una función racional es el conjunto de todos los valores que la función puede tomar. La imagen puede ser un subconjunto de los números reales o un subconjunto de los números complejos.
+          <br>3) <b>Encontrar los puntos de corte con los ejes.</b> Para encontrar los puntos de corte con el eje x, se debe resolver la ecuación f(x) = 0. Para encontrar el punto de corte con el eje y, se debe evaluar la función en x = 0.
+          <br>6) <b>Encontrar las asíntotas oblicuas.</b> Las asíntotas oblicuas son rectas que la función se acerca a medida que x tiende a infinito o menos infinito, pero no son horizontales ni verticales. Las asíntotas oblicuas se encuentran al calcular el cociente de los polinomios que forman la función.
+          <br>5) <b>Encontrar las asíntotas horizontales.</b> Las asíntotas horizontales son rectas horizontales que la función se acerca a medida que x se acerca a infinito o menos infinito. Las asíntotas horizontales se encuentran al calcular el límite de la función cuando x tiende a infinito o menos infinito.
+          <br>4) <b>Encontrar las asíntotas verticales.</b> Las asíntotas verticales son rectas verticales que la función se acerca a medida que x se acerca a ciertos valores. Las asíntotas verticales se encuentran en los valores de x que hacen que el denominador de la función sea cero.
+          <br>7) <b>Encontrar los intervalos de crecimiento y decrecimiento.</b> Para encontrar los intervalos de crecimiento y decrecimiento, se puede utilizar la primera derivada de la función.
+          <br>8) <b>Encontrar los intervalos de concavidad y convexidad.</b> Para encontrar los intervalos de concavidad y convexidad, se puede utilizar la segunda derivada de la función.
+          <br>9) <b>Encontrar los puntos de inflexión.</b> Los puntos de inflexión son los puntos en los que la función cambia de concavidad. Se pueden encontrar al igualar la segunda derivada a cero y resolver para x.
+          <br>10)<b>Encontrar las raíces.</b> Las raíces de una función racional son los valores de x que hacen que la función sea cero. Se pueden encontrar al resolver la ecuación f(x) = 0.
+          <br>11)<b>Encontrar la ordenada al origen.</b> La ordenada al origen es el valor de la función cuando x = 0.
+        </p>
+        <br>
+        <b><p class="text-2xl">Como resolver las funciones Homograficas/ Racionales</p></b>
+        <p>
+          <br>
+          Para resolver una función racional, se pueden seguir los siguientes pasos. A continuación, se resolverá un ejemplo paso a paso: <p>$$f(x) = \frac{x^2 - 4}{x - 2}$$</p>
+
+    <br> la función. En este caso, la función ya está simplificada.
+    <br>Encontrar el dominio de la función. El denominador de la función es cero cuando x = 2, por lo que el dominio de la función es todos los números reales excepto <p>$$x = 2$$</p>
+    Encontrar los puntos de corte con los ejes. Para encontrar el punto de corte con el eje x, se debe resolver la ecuación <b>f(x) = 0</b> En este caso, la ecuación es <p>$$ \frac{(x^2 - 4)} {(x - 2)} = 0$$</p> Esto ocurre cuando <b>x = -2 y x = 2</b> Para encontrar el punto de corte con el eje y, se debe evaluar la función en <b>x = 0</b> En este caso, <b>f(0) = -2</b>
+    <br>Encontrar las asíntotas verticales. Las asíntotas verticales son rectas verticales que la función se acerca a medida que x se acerca a ciertos valores. En este caso, la función tiene una asíntota vertical en <b>x = 2</b>
+    <br><br>Encontrar las asíntotas horizontales. Las asíntotas horizontales son rectas horizontales que la función se acerca a medida que x se acerca a infinito o menos infinito. En este caso, la función no tiene asíntotas horizontales.
+    <br><br> Encontrar las asíntotas oblicuas. Las asíntotas oblicuas son rectas que la función se acerca a medida que x tiende a infinito o menos infinito, pero no son horizontales ni verticales. En este caso, la función no tiene asíntotas oblicuas.
+    <br><br>Encontrar los intervalos de crecimiento y decrecimiento. Para encontrar los intervalos de crecimiento y decrecimiento, se puede utilizar la primera derivada de la función. En este caso, la primera derivada es <p>$$f(x) = \frac {(2x - 4)} {(x - 2)}^2$$</p> La primera derivada es positiva cuando x < 2 y negativa cuando x > 2, lo que significa que la función es creciente en (-infinito, 2) y decreciente en (2, infinito).
+    <br><br>Encontrar los intervalos de concavidad y convexidad. Para encontrar los intervalos de concavidad y convexidad, se puede utilizar la segunda derivada de la función. En este caso, la segunda derivada es <p>$$f(x) = \frac {6}  {(x - 2)^3}$$</p> La segunda derivada es positiva para todo x, lo que significa que la función es convexa en todos los puntos.
+    <br><br>Encontrar los puntos de inflexión. Los puntos de inflexión son los puntos en los que la función cambia de concavidad. Se pueden encontrar al igualar la segunda derivada a cero y resolver para x. En este caso, la segunda derivada nunca es cero, por lo que la función no tiene puntos de inflexión.
+    <br><br>Encontrar las raíces. Las raíces de una función racional son los valores de x que hacen que la función sea cero. Se pueden encontrar al resolver la ecuación f(x) = 0. En este caso, la ecuación es <p>$$\frac{(x^2 - 4)} {(x - 2)} = 0$$</p> Esto ocurre cuando <b>x = -2 y x = 2</b>
+    <br><br>Encontrar la ordenada al origen. La ordenada al origen es el valor de la función cuando x = 0. En este caso, f(0) = -2.
+
+    En resumen, la función racional <p>$$f(x) = \frac {(x^2 - 4)} {(x - 2)}$$</p> tiene un dominio de todos los números reales excepto x = 2, un punto de corte con el eje x en <b>x = -2 y x = 2</b> un punto de corte con el eje y en y = -2, una asíntota vertical en x = 2, no tiene asíntotas horizontales ni oblicuas, es creciente en (-infinito, 2) y decreciente en (2, infinito), es convexa en todos los puntos, tiene raíces en <b>x = -2 y x = 2</b> y una ordenada al origen de -2.
+        </p>
         <script src="index.js">
           
         </script>

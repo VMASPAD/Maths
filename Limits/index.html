@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Exponenciales</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" type="text/css" href="./styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.1.7/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <html data-theme="cupcake">
+</head>
+<body>
+    <p>Ejemplo: $$\lim_{x \to 2} = \frac{2x^2 - 4x}{x - 2}$$</p>
+    <p>La calculadora sigue las reglas de las matematicas: <br><br>
+        / : division<br>
+        * : multiplicacion <br>
+        ** : exponencial (x ** 2, x^2) <br>
+        ( ): prioridad al contenido adentro
+    </p>
+    <div>
+        <label for="equationInput">Ecuación:</label>
+        <input type="text" id="equationInput" class="input input-bordered input-info w-38 max-w-xs" placeholder="(2 * (x ** 2)- (4*x))/(x - 2)" required>
+        <br>
+        <br><label for="equationInput">Valor de X:</label>
+        <input type="number" id="limitx" class="input input-bordered input-info w-24 max-w-xs" required>
+        <br><br>
+        <button id="updateButton" class="btn btn-outline btn-primary">Graficar</button>
+      </div>
+
+    <canvas id="myChart" height="400px"></canvas>
+
+    <div style="display: flex;">
+        <table id="dataTable" style="width: 20%;"></table>
+      </div>
+    
+      <b><p class="text-2xl">Como se resuelve los limites(Por sustitucion) ?</p></b>
+      <p class="text-justify"><br>
+        La sustitución directa es un método para resolver límites en el que se reemplaza el valor de x en la función y se evalúa el resultado. Este método se puede utilizar cuando el valor del límite se puede obtener directamente al evaluar la función en el punto en el que se está evaluando el límite. A continuación, se describen los pasos para resolver límites por sustitución directa:
+
+<br><br> Evaluar la función en el punto en el que se está evaluando el límite. Si la función no está definida en ese punto, se debe simplificar la expresión algebraicamente antes de evaluarla.
+<br><br> Si el resultado de la evaluación es un número finito, ese será el límite de la función en ese punto.
+            <br><br>  Si el resultado de la evaluación es ∞ o -∞, el límite no existe.
+            <br><br> Si el resultado de la evaluación es una forma indeterminada como 0/0 o ∞/∞, se debe utilizar otro método para resolver el límite, como la regla de L'Hôpital o la factorización.
+
+        Es importante tener en cuenta que la sustitución directa solo se puede utilizar en casos específicos en los que el valor del límite se puede obtener directamente al evaluar la función en el punto en el que se está evaluando el límite. En otros casos, se deben utilizar otros métodos para resolver el límite.
+        </p>
+
+      <script src="./index.js"></script>
+</body>
+</html>

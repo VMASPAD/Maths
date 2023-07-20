@@ -1,0 +1,22 @@
+body{
+    height: 661px !important;
+    width: 472px !important;
+    zoom: 150%;
+    text-align: center;
+    margin: 0 auto !important;
+}
+html {
+    scroll-behavior: smooth;
+}
+
+/* Estilos adicionales para la animación de deslizamiento */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Sección para la que quieres deslizar */
+#destino {
+    height: 100vh;
+}

@@ -20,20 +20,29 @@
     <div>
         <div>
             <label for="input-a">Coeficiente a:</label>
-            <input type="number" id="input-a" class="input input-bordered input-info w-28 max-w-xs" />
+            <input type="number" id="input-a" class="input input-bordered input-info w-28 max-w-xs" required/>
         </div>
         <br>
         <div>
             <label for="input-b">Coeficiente b:</label>
-            <input type="number" id="input-b" class="input input-bordered input-info w-28 max-w-xs" />
+            <input type="number" id="input-b" class="input input-bordered input-info w-28 max-w-xs" required/>
         </div>
         <br>
         <button onclick="updateChart()" class="btn btn-outline btn-primary">Graficar</button>
+        <button onclick="addNewLine()" class="btn btn-outline btn-primary" id="graf">Agregar funcion</button>
         <br>
         <br>
     </div>
     <canvas id="graph" height="200px"></canvas>
     <br>
+    <table id="data-table">
+        <colgroup span="4"></colgroup>
+        <tr>
+          <th>Color</th>
+          <th>Funcion</th>
+          <th>eliminar</th>
+        </tr>
+      </table>
 <div class="order-solid border-2 border-red-950">
 <b><p class="text-2xl">Resultado:</p></b>
 
@@ -45,6 +54,7 @@
     <p id="iddecre"></p>
     <p id="concre"></p>
     <p id="condecre"></p>
+    <p id="czero"></p>
     <br>
 </div>
 <br>

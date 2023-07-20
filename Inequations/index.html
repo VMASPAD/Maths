@@ -1,50 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Calculadora de Homograficas</title>
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom"></script>
-        <script src="https://cdn.tailwindcss.com"></script>
-        <link rel="stylesheet" type="text/css" href="./styles.css">
-        <link href="https://cdn.jsdelivr.net/npm/daisyui@3.1.7/dist/full.css" rel="stylesheet" type="text/css" />
-        <script src="https://cdn.tailwindcss.com"></script>
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-        <html data-theme="cupcake">
-    </head>
-    <body>
-		<h1>$$ax + b = cx + d$$</h1>
-		<h1>⇕ (iguales)</h1>
-		<h1>$$ax + b > cx + d$$</h1>
-		  <label for="input-a">Ingrese el coeficiente a:</label>
-		  <input type="number" id="input-a" required class="input input-bordered input-primary w-28 max-w-xs"><br><br>
-		  <label for="input-b">Ingrese el coeficiente b:</label>
-		  <input type="number" id="input-b" required class="input input-bordered input-primary w-28 max-w-xs"><br><br>
-		  <label for="input-c">Ingrese el coeficiente c:</label>
-		  <input type="number" id="input-c" required class="input input-bordered input-primary w-28 max-w-xs"><br><br>
-		  <label for="input-d">Ingrese el coeficiente d:</label>
-		  <input type="number" id="input-d" required class="input input-bordered input-primary w-28 max-w-xs"><br><br>
-		  <label for="inequality-select">Seleccione el tipo de desigualdad:</label>
-		  <select id="inequality-select" class="select select-info w-full max-w-xs">
-			<option value="<">&lt;</option>
-			<option value=">">&gt;</option>
-			<option value="<=">&le;</option>
-			<option value=">=">&ge;</option>
-		  </select><br><br>
 
-		  <button onclick="graph()" class="btn btn-outline btn-info">Calcular</button>
-		  <br><br>
-	  
-		<div id="result-container">
+<head>
+	<title>Calculadora de Homograficas</title>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom"></script>
+	<script src="https://cdn.tailwindcss.com"></script>
+	<link rel="stylesheet" type="text/css" href="./styles.css">
+	<link href="https://cdn.jsdelivr.net/npm/daisyui@3.1.7/dist/full.css" rel="stylesheet" type="text/css" />
+	<script src="https://cdn.tailwindcss.com"></script>
+	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+	<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+	<html data-theme="cupcake">
+</head>
 
-		  <b><p id="resultado" style="color: blue;"></p></b><br>
+<body>
+	<h1>$$ax + b = cx + d$$</h1>
+	<h1>⇕ (iguales)</h1>
+	<h1>$$ax + b > cx + d$$</h1>
+	<label for="input-a">Ingrese el coeficiente A:</label>
+	<input type="number" id="input-a" required class="input input-bordered input-primary w-28 max-w-xs"><br><br>
+	<label for="input-b">Ingrese el coeficiente B:</label>
+	<input type="number" id="input-b" required class="input input-bordered input-primary w-28 max-w-xs"><br><br>
+	<label for="input-c">Ingrese el coeficiente C:</label>
+	<input type="number" id="input-c" required class="input input-bordered input-primary w-28 max-w-xs"><br><br>
+	<label for="input-d">Ingrese el coeficiente D:</label>
+	<input type="number" id="input-d" required class="input input-bordered input-primary w-28 max-w-xs"><br><br>
+	<label for="inequality-select">Seleccione el tipo de desigualdad:</label>
+	<select id="inequality-select" class="select select-info w-full max-w-xs">
+		<option value="<">&lt;</option>
+		<option value=">">&gt;</option>
+		<option value="<=">&le;</option>
+		<option value=">=">&ge;</option>
+	</select><br><br>
 
-		  <b><p id="infinite"></p></b><br>
-		  
-		  <canvas id="chart" height="300px"></canvas>
-		</div>
-		<br><br>
-		
-    <script src="index.js"></script>
+	<button onclick="graph()" class="btn btn-outline btn-info">Calcular</button>
+	<br><br>
+
+	<canvas id="chart" height="300px"></canvas>
+
+	<div id="result-container" class="flex flex-col border-2 border-sky-500 m-5">
+		<b>
+			<p class="text-xl">Resultados:</p>
+		</b><br>
+		<b>
+			<p id="resultado" style="color: blue;"></p>
+		</b><br>
+
+		<b>
+			<p id="infinite"></p>
+		</b><br>
+
+	</div>
+
+	<br><br>
+	<b>
+		<p class="text-2xl">Como se resuelven las inecuaciones?</p>
+	</b>
+	<br>
+	<p class="text-justify">
+		Para resolver una inecuación, se deben seguir los siguientes pasos:
+
+		<br>Agrupar los términos que contienen la variable en un lado de la inecuación y los términos constantes en el
+		otro lado. Por ejemplo, si la inecuación es
+	<p>$$2x + 3 < 5x - 1$$</p> se pueden restar 2x a ambos lados de la inecuación para obtener <p>$$3 < 3x - 1$$</p>
+					Sumar o restar los términos constantes para obtener la variable sola en un lado de la inecuación. En
+					el ejemplo anterior, se pueden sumar 1 a ambos lados de la inecuación para obtener <p>$$4 < 3x$$</p>
+							Dividir ambos lados de la inecuación por el coeficiente de la variable para obtener el valor
+							de la variable. En el ejemplo anterior, se puede dividir ambos lados de la inecuación por 3
+							para obtener <p>$$x <\frac{3}{4}$$
+									Escribir la solución de la inecuación en notación de intervalos. En el ejemplo
+									anterior, la solución es <p>$$x > 4/3$$</p> lo que significa que x es mayor que 4/3.
+
+									<br><br>En resumen, para resolver una inecuación, se deben agrupar los términos que
+									contienen la variable en un lado de la inecuación y los términos constantes en el
+									otro lado, y luego resolver para la variable dividiendo ambos lados de la inecuación
+									por el coeficiente de la variable. La solución se escribe en notación de intervalos.
+
+
+							</p>
+							<script src="index.js"></script>
 </body>
+
 </html>
