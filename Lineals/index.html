@@ -11,6 +11,9 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <html data-theme="cupcake">
 </head>
 
@@ -31,10 +34,22 @@
         <button onclick="updateChart()" class="btn btn-outline btn-primary">Graficar</button>
         <button onclick="addNewLine()" class="btn btn-outline btn-primary" id="graf">Agregar funcion</button>
         <br>
+        <div id="graphContainer">
+            <!-- El gráfico se generará aquí -->
+          </div>
+          <div id="imageContainer">
+            <!-- La imagen generada se mostrará aquí -->
+          </div>
+          
         <br>
     </div>
-    <canvas id="graph" height="200px"></canvas>
-    <br>
+    <div>
+        <canvas id="graph" height="300px"></canvas>
+    </div>
+    <br><br>
+    <button onclick="exportToPNG()"  class="btn btn-outline btn-primary">Crear Imagen</button>
+    <br><br>
+
     <table id="data-table">
         <colgroup span="4"></colgroup>
         <tr>
@@ -56,6 +71,12 @@
     <p id="condecre"></p>
     <p id="czero"></p>
     <br>
+</div>
+<br>
+<h1 class="text-2xl">Imagen creada:</h1>
+<br>
+<div id="downloadLinkContainer">
+  <!-- El enlace para descargar la imagen se generará aquí -->
 </div>
 <br>
     <b>
@@ -91,7 +112,8 @@
         <br><br><b>Conjunto de positividad/negatividad:</b> El conjunto de positividad/negatividad de una función lineal es el conjunto de valores de x para los cuales la función es positiva o negativa. Si la función es positiva, significa que los valores de y son mayores que cero para los valores correspondientes de x. Si la función es negativa, significa que los valores de y son menores que cero para los valores correspondientes de x.
 
     </p>
+
+
     <script src="index.js"></script>
 </body>
-
 </html>

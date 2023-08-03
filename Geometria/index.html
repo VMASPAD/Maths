@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <head>
+        <title>Calculadora de Geometria</title>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom"></script>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet" type="text/css" href="styles.css">
+        <link href="https://cdn.jsdelivr.net/npm/daisyui@3.1.7/dist/full.css" rel="stylesheet" type="text/css" />
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <html data-theme="cupcake">
+    </head>
+</head>
+<body>
+    <b><h1>Calculadora de Geometria</h1></b>
+    <select id="selecForm" onchange="mostrarTexto()" class="select select-warning w-34 max-w-xs" required>
+        <option disabled selected>Elija la forma</option>
+        <option value="Cuadrado">Cuadrado</option>
+        <option value="Triangulo">Triangulo</option>
+        <option value="Rombo">Rombo</option>
+        <option value="Circulo">Circulo</option>
+        <option value="Elipse">Elipse</option>
+        <option value="Trapecio">Trapecio</option>
+        <option value="Pentagono">Pentagono</option>
+        <option value="Octógono">Octógono</option>
+        <option value="Dodecagono">Dodecágono</option>
+        <option value="Cubo">Cubo</option>
+        <option value="Piramide">Piramide</option>
+    </select>
+      <div id="textoOculto" style="display: none;"></div><br><br>
+      <button onclick="exetedreon()" class="btn btn-outline btn-primary">Calcular</button>
+      <script src="script.js"></script>
+</body>
+</html>

@@ -146,7 +146,7 @@ var toggleButton = document.getElementById("toggleButton");
 toggleButton.addEventListener("click", function() {
   showLineejeX = !showLineejeX;
   updateChart();
-  toggleButton.textContent = showLineejeX ? "Ocultar Recta" : "Mostrar Recta";
+  toggleButton.textContent = showLineejeX ? "Ocultar EjeX" : "Mostrar EjeX";
 });
 
 var ejeY = document.getElementById("ejeY");
@@ -160,7 +160,7 @@ var ejeX = document.getElementById("ejeX");
 ejeX.addEventListener("click", function() {
   showLine = !showLine;
   updateChart();
-  ejeX.textContent = showLine ? "Ocultar EjeX" : "Mostrar EjeX";
+  ejeX.textContent = showLine ? "Ocultar Recta" : "Mostrar Recta";
 });
 
 var points = document.getElementById("points");

@@ -1,0 +1,32 @@
+body{
+    height: 661px !important;
+    width: 472px !important;
+    zoom: 150%;
+    text-align: center;
+    margin: 0 auto !important;
+}
+.TrianguloReactangulo{
+    width: 200px;
+}
+
+.triangulo{
+   display: grid;
+   justify-items: center;
+   margin: 4%;
+}
+
+.resultBold{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+td {
+    text-align: center;
+    vertical-align: middle;
+    width: 20%;
+    height: 70px;
+    border: 1px solid black;
+}

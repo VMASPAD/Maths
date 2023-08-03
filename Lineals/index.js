@@ -195,3 +195,44 @@ var añadir = document.getElementById("graf");
       var b = parseFloat(document.getElementById("input-b").value);
    addData("purple",`${a}x ${b > 0 ? `+${b}` : `${b}`}`)
     });
+    
+    var imgElement; // Declarar una variable global para el elemento img
+
+    function exportToPNG() {
+      var chartContainer = document.getElementById('graph').parentElement;
+      html2canvas(chartContainer).then(function(canvas) {
+        var imgData = canvas.toDataURL('image/png');
+    
+        // Borrar la imagen anterior si existe
+        if (imgElement) {
+          imgElement.remove();
+        }
+    
+        // Crear un elemento img y mostrar la imagen generada
+        imgElement = document.createElement('img');
+        imgElement.src = imgData;
+        imgElement.style.marginTop = '10px'; // Añadir un margen superior
+    
+        // Crear un enlace de descarga
+        var downloadLink = document.createElement('a');
+        downloadLink.download = 'grafico.png'; // Nombre de archivo para descargar
+        downloadLink.href = imgData;
+        downloadLink.appendChild(imgElement); // Agregar la imagen dentro del enlace
+    
+        // Agregar el enlace al contenedor
+        var downloadLinkContainer = document.getElementById('downloadLinkContainer');
+        if (downloadLinkContainer) {
+          downloadLinkContainer.innerHTML = ''; // Limpiar el contenedor antes de agregar el enlace
+          downloadLinkContainer.appendChild(downloadLink);
+        }
+      });
+    }
+    
+    // Mostrar el botón de compartir cuando se genera la imagen
+    function showShareButton() {
+      var shareButtonContainer = document.getElementById('shareButtonContainer');
+      if (shareButtonContainer) {
+        shareButtonContainer.style.display = 'block';
+      }
+    }
+    

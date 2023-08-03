@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Gráfico con Chart.js</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+</head>
+<body>
+  <div>
+    <canvas id="myChart" width="3840" height="2160"></canvas> <!-- Resolución 4K -->
+  </div>
+  <button onclick="exportToPNG()">Exportar a PNG</button>
+  <script>
+
+    // Crear el gráfico
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+    type: "line",
+    data: {
+      labels: [],
+      datasets: [
+        {
+          label: "Ecuación Lineal",
+          data: [
+            { x: 0, y: 9 },
+            { x:  6 , y: 0 }
+          ],
+          borderColor: "blue",
+          fill: false
+        },
+        {
+          label: "Eje X",
+          data: [{ x: -10000, y: 0 }, { x: 10000, y: 0 }],
+          showLine: true,
+          borderColor: "red",
+          backgroundColor: "transparent"
+        },
+        {
+          label: "Eje Y",
+          data: [{ x: 0, y: -10000 }, { x: 0, y: 10000 }],
+          showLine: true,
+          borderColor: "green",
+          backgroundColor: "transparent"
+        }
+      ]
+    },
+    options: {
+      scales: {
+        x: {
+          type: "linear",
+          position: "bottom",
+          min: -10,
+          max: 10,
+          ticks: {
+            stepSize: 1
+          }
+        },
+        y: {
+          type: "linear",
+          position: "left",
+          min: -10,
+          max: 10,
+          ticks: {
+            stepSize: 1
+          }
+        }
+      },
+      plugins: {
+        zoom: {
+          zoom: {
+            wheel: {
+              enabled: true
+            },
+            pinch: {
+              enabled: true
+            },
+            mode: "xy"
+          }
+        }
+      },
+      annotation: {
+        annotations: [
+          {
+            type: "line",
+            mode: "horizontal",
+            scaleID: "y",
+            value: 0,
+            borderColor: "black",
+            borderWidth: 1,
+            borderDash: [5, 5]
+          },
+          {
+            type: "line",
+            mode: "vertical",
+            scaleID: "x",
+            value: 0,
+            borderColor: "black",
+            borderWidth: 1,
+            borderDash: [5, 5]
+          }
+        ]
+      }
+    }
+  });
+
+    // Función para exportar a PNG
+    function exportToPNG() {
+      var chartContainer = document.getElementById('myChart').parentElement;
+      html2canvas(chartContainer).then(function(canvas) {
+        var imgData = canvas.toDataURL('image/png');
+        var link = document.createElement('a');
+        link.download = 'grafico.png';
+        link.href = imgData;
+        link.click();
+      });
+    }
+  </script>
+</body>
+</html>

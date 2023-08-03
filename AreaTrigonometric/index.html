@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Calculadora de Parábolas Cuadráticas</title>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom"></script>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet" type="text/css" href="styles.css">
+        <link href="https://cdn.jsdelivr.net/npm/daisyui@3.1.7/dist/full.css" rel="stylesheet" type="text/css" />
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <html data-theme="cupcake">
+    </head>
+<body><br>
+    <b><h1>Calculadora de Geometria (OBLICUÁNGULO, NO TRIANGULO RECTÁNGULO)</h1></b>
+    <select id="selecForm" onchange="mostrarTexto()" class="select select-warning w-34 max-w-xs" required>
+        <option disabled selected>Elija la forma</option>
+        <option value="Rectantugulo">Rectantugulo</option>
+        <option value="Equilatero">Equilatero</option>
+        <option value="Isosceles">Isosceles</option>
+        <option value="Triangulo">Triangulo cualquiera o Escaleno</option>
+    </select>
+      <div id="textoOculto" style="display: none;"></div><br><br>
+      <button onclick="exetedreon()" class="btn btn-outline btn-primary">Calcular</button>
+      
+    <script src="script.js"></script>
+</body>
+</html>

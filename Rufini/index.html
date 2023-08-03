@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculadora de Rufini o Evaluación</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.1.7/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <html data-theme="cupcake">
+</head>
+<body>
+    <h1>Calculadora de Ruffini</h1>
+    <label for="polynomial">Ingresa el polinomio Ej:$$(ax^3 + bx^2 + cx + d)$$</label>
+    <br>
+    <select id="selecForm" onchange="mostrarTexto()" class="select select-warning w-34 max-w-xs" required>
+        <option disabled selected>Elige el grado</option>
+        <option value="grade2">2</option>
+        <option value="grade3">3</option>
+        <option value="grade4">4</option>
+        <option value="grade5">5</option>
+        <option value="grade6">6</option>
+        <option value="grade7">7</option>
+        <option value="grade8">8</option>
+        <option value="grade9">9</option>
+        <option value="grade10">10</option>
+      </select>
+      <br>
+      <div id="textoOculto" style="display: none;"></div>
+      <br>
+      
+      <b><p class="text-2xl">Como se resuelve Ruffini?</p></b><br><br>
+      <p>
+        La regla de Ruffini, también conocida como regla del término o método de la división sintética, es una técnica matemática utilizada para dividir un polinomio P(x) entre un binomio de la forma (x - r), donde 'r' es una raíz del polinomio. Esta regla facilita la división y factorización de polinomios y es especialmente útil cuando conocemos alguna de las raíces del polinomio.
+        <br><br>
+Teoría:
+
+La regla de Ruffini se basa en el hecho de que si 'r' es una raíz de un polinomio P(x), entonces P(r) = 0. Es decir, cuando evaluamos el polinomio en 'r', el resultado es cero. Por lo tanto, podemos dividir el polinomio P(x) entre (x - r) utilizando una tabla o esquema especial, evitando tener que realizar una división larga.
+<br><br>
+Para llevar a cabo la regla de Ruffini, seguimos los siguientes pasos:
+<br><br>
+1. Escribimos el polinomio P(x) en orden descendente de exponentes, rellenando los espacios vacíos si algún término del polinomio no está presente.
+<br><br>
+2. Identificamos el valor 'r', que es la raíz conocida del polinomio. Normalmente, conocemos 'r' porque hemos resuelto previamente el polinomio o porque nos lo han dado en el problema.
+<br><br>
+3. Creamos una tabla con la primera fila compuesta por los coeficientes del polinomio (incluido el término independiente) y la segunda fila, comenzando con 'r' en el primer cuadro y rellenando los demás cuadros con las multiplicaciones sucesivas de 'r' por los coeficientes.
+<br><br>
+4. Realizamos las sumas verticales en la última fila y obtenemos el resultado. Si el último valor es cero, significa que 'r' es una raíz del polinomio, y la división ha sido exitosa.
+<br><br>
+Ejemplo:
+<br><br>
+Supongamos que tenemos el polinomio $$P(x) = x^3 - 6x^2 + 11x - 6$$ y conocemos que r = 2 es una raíz del polinomio. Queremos utilizar la regla de Ruffini para dividir P(x) entre (x - 2) y encontrar los coeficientes del polinomio resultante.
+
+Aplicamos la regla de Ruffini:
+<br><br>
+<div>
+<pre>
+        1    -6     11  -6   <-- Coeficientes del polinomio (P(x))
+    ------------------------------------------
+  2 |   1    -4     3    6   <-- Coeficientes multiplicados por 2
+    |   2    -12   -18  -24  <-- Resultado de las multiplicaciones
+    ------------------------------------------
+        1    -6    -9   -18  <-- Resultado de la suma vertical
+</pre>
+</div>
+<br><br>
+El resultado es el polinomio resultante $$(x^2 - 4x - 9)$$. El último valor de la última fila es -18, lo que indica que la división ha sido exitosa, y la regla de Ruffini nos ha permitido encontrar el cociente (x^2 - 4x - 9) al dividir P(x) entre (x - 2).
+
+Es importante tener en cuenta que si el último valor en la última fila no es cero, significa que 'r' no es una raíz del polinomio, y tendríamos un residuo que no es cero. En ese caso, deberíamos probar con otra supuesta raíz hasta encontrar una que produzca un residuo de cero.
+      </p>
+    <script src="ruffini.js"></script>
+</body>
+</html>
