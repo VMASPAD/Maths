@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Calculadora de Exponenciales</title>
+    <meta charset="UTF-8">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom"></script>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -53,8 +54,16 @@
     </div>
     <br>
 </div>
-    <button onclick="calc()" class="input input-bordered input-info w-28 max-w-xs">Calc</button>
+    <button onclick="calc()" class="input input-bordered input-info w-28 max-w-xs">Calcular</button>
+    <br>
+    <button id="zoomX" class="btn btn-outline">+X</button>
+    <button id="reduceX" class="btn btn-outline">-X</button>
+    <p>UnidadesX: <span id="countX"></span></p>
 
+    <button id="zoomY" class="btn btn-outline">+Y</button>
+    <button id="reduceY" class="btn btn-outline">-Y</button>
+    <p>UnidadesY: <span id="countY"></span></p>
+    <br>
       <canvas id="myChart" height="400px"></canvas>
 
     <div class="border-green-500 border-2">

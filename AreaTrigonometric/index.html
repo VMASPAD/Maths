@@ -2,6 +2,7 @@
 <html lang="en">
     <head>
         <title>Calculadora de Parábolas Cuadráticas</title>
+        <meta charset="UTF-8">
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom"></script>
         <script src="https://cdn.tailwindcss.com"></script>
@@ -13,7 +14,7 @@
         <html data-theme="cupcake">
     </head>
 <body><br>
-    <b><h1>Calculadora de Geometria (OBLICUÁNGULO, NO TRIANGULO RECTÁNGULO)</h1></b>
+    <b><h1>Calculadora de Geometria AREA (OBLICUÁNGULO, NO TRIANGULO RECTÁNGULO)</h1></b><br>
     <select id="selecForm" onchange="mostrarTexto()" class="select select-warning w-34 max-w-xs" required>
         <option disabled selected>Elija la forma</option>
         <option value="Rectantugulo">Rectantugulo</option>
@@ -21,8 +22,10 @@
         <option value="Isosceles">Isosceles</option>
         <option value="Triangulo">Triangulo cualquiera o Escaleno</option>
     </select>
-      <div id="textoOculto" style="display: none;"></div><br><br>
-      <button onclick="exetedreon()" class="btn btn-outline btn-primary">Calcular</button>
+    <button onclick="exetedreon()" class="btn btn-outline btn-primary">Calcular</button>
+      <div id="textoOculto" style="display: none;" >
+    
+    </div><br><br>
       
     <script src="script.js"></script>
 </body>

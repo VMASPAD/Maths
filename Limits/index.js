@@ -1,3 +1,67 @@
+var countX = parseInt(localStorage.getItem("countX")) || 0;
+var countElementX = document.getElementById("countX");
+
+// Mostrar el contador actualizado en la página
+countElementX.textContent = countX;
+
+// Obtener el botón y agregar un event listener para incrementar el contador
+var zoomX = document.getElementById("zoomX");
+zoomX.addEventListener("click", function() {
+    countX += 1;
+    countElementX.textContent = countX;
+    updateChart()
+    // Guardar el contador actualizado en el localStorage
+    localStorage.setItem("countX", countX);
+});
+
+var countX = parseInt(localStorage.getItem("countX")) || 0;
+var countElementX = document.getElementById("countX");
+
+// Mostrar el contador actualizado en la página
+countElementX.textContent = countX;
+
+// Obtener el botón y agregar un event listener para incrementar el contador
+var reduceX = document.getElementById("reduceX");
+reduceX.addEventListener("click", function() {
+    countX -= 1;
+    countElementX.textContent = countX;
+    updateChart()
+    // Guardar el contador actualizado en el localStorage
+    localStorage.setItem("countX", countX);
+});
+
+var countY = parseInt(localStorage.getItem("countY")) || 0;
+var countElementY = document.getElementById("countY");
+
+// Mostrar el contador actualizado en la página
+countElementY.textContent = countY;
+
+// Obtener el botón y agregar un event listener para incrementar el contador
+var zoomY = document.getElementById("zoomY");
+zoomY.addEventListener("click", function() {
+    countY += 1;
+    countElementY.textContent = countY;
+    updateChart()
+    // Guardar el contador actualizado en el localStorage
+    localStorage.setItem("countY", countY);
+});
+
+var countY = parseInt(localStorage.getItem("countY")) || 0;
+var countElementY = document.getElementById("countY");
+
+// Mostrar el contador actualizado en la página
+countElementY.textContent = countY;
+
+// Obtener el botón y agregar un event listener para incrementar el contador
+var reduceY = document.getElementById("reduceY");
+reduceY.addEventListener("click", function() {
+    countY -= 1;
+    countElementY.textContent = countY;
+    updateChart()
+    // Guardar el contador actualizado en el localStorage
+    localStorage.setItem("countY", countY);
+});
+
 var ctx = document.getElementById('myChart').getContext('2d');
 var equationInput = document.getElementById('equationInput');
 var updateButton = document.getElementById('updateButton');
@@ -67,26 +131,26 @@ function updateChart() {
     ]
     },
     options: {
-        scales: {
-            x: {
-              type: "linear",
-              position: "bottom",
-              min: -10,
-              max: 10,
-              ticks: {
+      scales: {
+        x: {
+            type: "linear",
+            position: "bottom",
+            min: -(parseFloat(JSON.parse(localStorage.getItem("countX")))),
+            max: parseFloat(JSON.parse(localStorage.getItem("countX"))),
+            ticks: {
                 stepSize: 1
-              }
-            },
-            y: {
-              type: "linear",
-              position: "left",
-              min: -10,
-              max: 10,
-              ticks: {
-                stepSize: 1
-              }
             }
-          },
+        },
+        y: {
+            type: "linear",
+            position: "left",
+            min: -(parseFloat(JSON.parse(localStorage.getItem("countY")))),
+            max: parseFloat(JSON.parse(localStorage.getItem("countY"))),
+            ticks: {
+                stepSize: 1
+            }
+        }
+    },
       plugins: {
         title: {
           display: true,

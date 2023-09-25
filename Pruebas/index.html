@@ -1,119 +1,186 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Gráfico con Chart.js</title>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
-</head>
-<body>
-  <div>
-    <canvas id="myChart" width="3840" height="2160"></canvas> <!-- Resolución 4K -->
-  </div>
-  <button onclick="exportToPNG()">Exportar a PNG</button>
-  <script>
+  <head>
+    <title>Graficar Serie de Fourier con Chart.js</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-zoom/1.7.1/chartjs-plugin-zoom.js"></script>
+  </head>
+  <body>
+    <div style="display: flex">
+      <canvas id="fourierChart" width="600" height="200"></canvas>
+      <canvas id="spectralChart" width="600" height="200"></canvas>
+    </div>
+    <script>
+      // Función para calcular los coeficientes de la serie de Fourier
+      function calculateFourierCoefficients(f, n, T) {
+        let a0 = 0;
+        let an = 0;
+        let bn = 0;
 
-    // Crear el gráfico
-    var ctx = document.getElementById('myChart').getContext('2d');
-    var myChart = new Chart(ctx, {
-    type: "line",
-    data: {
-      labels: [],
-      datasets: [
-        {
-          label: "Ecuación Lineal",
-          data: [
-            { x: 0, y: 9 },
-            { x:  6 , y: 0 }
-          ],
-          borderColor: "blue",
-          fill: false
-        },
-        {
-          label: "Eje X",
-          data: [{ x: -10000, y: 0 }, { x: 10000, y: 0 }],
-          showLine: true,
-          borderColor: "red",
-          backgroundColor: "transparent"
-        },
-        {
-          label: "Eje Y",
-          data: [{ x: 0, y: -10000 }, { x: 0, y: 10000 }],
-          showLine: true,
-          borderColor: "green",
-          backgroundColor: "transparent"
+        for (let i = 0; i < n; i++) {
+          a0 += (2 / T) * f((i * (2 * Math.PI)) / T);
+          an +=
+            (2 / T) *
+            f((i * (2 * Math.PI)) / T) *
+            Math.cos((i * (2 * Math.PI)) / T);
+          bn +=
+            (2 / T) *
+            f((i * (2 * Math.PI)) / T) *
+            Math.sin((i * (2 * Math.PI)) / T);
         }
-      ]
-    },
-    options: {
-      scales: {
-        x: {
-          type: "linear",
-          position: "bottom",
-          min: -10,
-          max: 10,
-          ticks: {
-            stepSize: 1
-          }
-        },
-        y: {
-          type: "linear",
-          position: "left",
-          min: -10,
-          max: 10,
-          ticks: {
-            stepSize: 1
-          }
-        }
-      },
-      plugins: {
-        zoom: {
-          zoom: {
-            wheel: {
-              enabled: true
-            },
-            pinch: {
-              enabled: true
-            },
-            mode: "xy"
-          }
-        }
-      },
-      annotation: {
-        annotations: [
-          {
-            type: "line",
-            mode: "horizontal",
-            scaleID: "y",
-            value: 0,
-            borderColor: "black",
-            borderWidth: 1,
-            borderDash: [5, 5]
-          },
-          {
-            type: "line",
-            mode: "vertical",
-            scaleID: "x",
-            value: 0,
-            borderColor: "black",
-            borderWidth: 1,
-            borderDash: [5, 5]
-          }
-        ]
+
+        return { a0, an, bn };
       }
-    }
-  });
 
-    // Función para exportar a PNG
-    function exportToPNG() {
-      var chartContainer = document.getElementById('myChart').parentElement;
-      html2canvas(chartContainer).then(function(canvas) {
-        var imgData = canvas.toDataURL('image/png');
-        var link = document.createElement('a');
-        link.download = 'grafico.png';
-        link.href = imgData;
-        link.click();
-      });
-    }
-  </script>
-</body>
+      // Función para generar puntos en el dominio de tiempo
+      function generateTimeDomainPoints(f, n, T) {
+        const points = [];
+        for (let t = 0; t <= T; t += 0.01) {
+          const { a0, an, bn } = calculateFourierCoefficients(f, n, T);
+
+          let sum = a0 / 2;
+          for (let i = 1; i < n; i++) {
+            sum +=
+              an * Math.cos((i * t * (2 * Math.PI)) / T) +
+              bn * Math.sin((i * t * (2 * Math.PI)) / T);
+          }
+          points.push({ x: t, y: sum });
+        }
+        return points;
+      }
+
+      // Función para calcular el espectro de Fourier
+      function calculateSpectralAmplitudes(f, maxN, T) {
+        const amplitudes = [];
+        for (let n = 1; n <= maxN; n++) {
+          const { an, bn } = calculateFourierCoefficients(f, n, T);
+          const amplitude = Math.sqrt(an * an + bn * bn);
+          amplitudes.push(amplitude);
+        }
+        return amplitudes;
+      }
+
+      // Función para graficar la serie de Fourier
+      function plotFourierSeries(f, n, T) {
+        const ctx = document.getElementById("fourierChart").getContext("2d");
+        const points = generateTimeDomainPoints(f, n, T);
+
+        const data = {
+          datasets: [
+            {
+              label: "Serie de Fourier",
+              data: points,
+              borderColor: "blue",
+              borderWidth: 2,
+              fill: false,
+            },
+            {
+              label: "Eje X",
+              data: [
+                { x: -10000, y: 0 },
+                { x: 10000, y: 0 },
+              ],
+              showLine: true,
+              borderColor: "red",
+              backgroundColor: "transparent",
+            },
+          ],
+        };
+
+        const config = {
+          type: "line",
+          data: data,
+          options: {
+            responsive: true,
+            scales: {
+              x: {
+                type: "linear",
+                position: "bottom",
+                min: -5,
+                max: 20,
+                ticks: {
+                  stepSize: 1,
+                },
+                beginAtZero: true,
+              },
+              y: {
+                type: "linear",
+                position: "left",
+                min: -100,
+                max: 100,
+                ticks: {
+                  stepSize: 1,
+                },
+                beginAtZero: true,
+              },
+            },
+            plugins: {
+              zoom: {
+                pan: {
+                  enabled: true,
+                  mode: "xy",
+                },
+                zoom: {
+                  enabled: true,
+                  mode: "xy",
+                },
+              },
+            },
+          },
+        };
+
+        const fourierChart = new Chart(ctx, config);
+      }
+
+      // Función para graficar el espectro de Fourier
+      function plotSpectralAmplitudes(f, maxN, T) {
+        const ctx = document.getElementById("spectralChart").getContext("2d");
+        const amplitudes = calculateSpectralAmplitudes(f, maxN, T);
+
+        const labels = Array.from({ length: maxN }, (_, i) => `n=${i + 1}`);
+
+        const data = {
+          labels: labels,
+          datasets: [
+            {
+              label: "Espectro de Fourier",
+              data: amplitudes,
+              borderColor: "red",
+              borderWidth: 2,
+              fill: false,
+            },
+          ],
+        };
+
+        const config = {
+          type: "bar",
+          data: data,
+          options: {
+            responsive: true,
+            scales: {
+              x: {
+                type: "category",
+              },
+              y: {
+                type: "linear",
+                position: "left",
+              },
+            },
+          },
+        };
+
+        const spectralChart = new Chart(ctx, config);
+      }
+
+      // Función para definir tu función deseada
+      function customFunction(x) {
+        // Cambia esta función según tu necesidad
+        return Math.sin(x) + 15.5 * Math.sin(3 * x) + 40.2 * Math.sin(5 * x);
+      }
+
+      // Llama a las funciones para graficar la serie y el espectro de Fourier
+      plotFourierSeries(customFunction, 100, 10 * Math.PI); // Ejemplo: 100 términos, período de 10π
+      plotSpectralAmplitudes(customFunction, 10, 2 * Math.PI); // Espectro para 10 términos
+    </script>
+  </body>
 </html>

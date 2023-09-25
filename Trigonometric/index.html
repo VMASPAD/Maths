@@ -3,6 +3,7 @@
 
 <head>
   <title>Calculadora de Parábolas Cuadráticas</title>
+  <meta charset="UTF-8">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom"></script>
   <script src="https://cdn.tailwindcss.com"></script>
@@ -15,135 +16,18 @@
 </head>
 
 <body>
-  <h1>Calculadora Triángulo Rectángulo</h1>
-  <div>
-    <div class="triangulo">
-      <img src="./TrianguloReactangulo.png" alt="TrianguloReactangulo" class="TrianguloReactangulo">
-    </div>
-    <label for="sideA">Cateto A:</label>
-    <input type="number" id="sideA" class="input input-bordered input-accent w-38 max-w-xs">
-    <br><br>
-    <label for="sideB">Cateto B:</label>
-    <input type="number" id="sideB" class="input input-bordered input-accent w-38 max-w-xs">
-    <br><br>
-    <label for="sideC">Cateto C:</label>
-    <input type="number" id="sideC" class="input input-bordered input-accent w-38 max-w-xs">
-    <br><br>
-    <label for="angleb">Ángulo β:</label>
-    <input type="number" id="angleb" class="input input-bordered input-accent w-38 max-w-xs">
-    <br><br>
-    <label for="angleO">Ángulo θ:</label>
-    <input type="number" id="angleO" class="input input-bordered input-accent w-38 max-w-xs">
-    <br><br>
-    <label for="sider">Lado α: 90°</label>
-    <b class="resultBold" id="results">
-      <!--   <p id="result"></p> -->
-      <p id="Perimetro"></p>
-      <p id="Area"></p>
-    </b>
-  </div><br>
-  <button onclick="calc()" class="btn btn-outline btn-accen">Calcular</button>
-  <button type="button" onclick="clearInput()" class="btn btn-outline btn-error">Borrar Resultados</button>
-  <br>
-  <br>
-  <select id="selecForm" class="select select-warning w-68 max-w-xs" required>
-    <option disabled selected>Elije los primeros dos valores</option>
-    <option value="sideAB">Valores: A-B</option>
-    <option value="sideCB">Valores: C-B</option>
-    <option value="sideAC">Valores: A-C</option>
-    <option value="angulesidebA">Angulo y cateto: β-A</option>
-    <option value="angulesidebB">Angulo y cateto: β-B</option>
-    <option value="angulesidebC">Angulo y hipotenusa: β-C</option>
-    <option value="angulesideOA">Angulo y cateto: θ-A</option>
-    <option value="angulesideOB">Angulo y cateto: θ-B</option>
-    <option value="angulesideOC">Angulo y hipotenusa: θ-C</option>
+  <b><h1>Selecciona una calculadora</h1></b><br>
+  <select id="selecForm" onchange="mostrarTexto()" class="select select-warning w-34 max-w-xs" required>
+    <option disabled selected>Elija la forma</option>
+    <option value="Trigonometria">Trigonometria Basica</option>
+    <option value="Oblicuangulos">Trigonometria / Oblicuangulos</option>
+    <option value="Esfera">Esfera o Circulo</option>
+    <option value="Arista">Arista o -Aedro</option>
   </select>
-  <br>
-  <b>
-    <p class="text-2xl">Trigonometria: Rectangulo / Triangulo</p>
-  </b>
-  <br>
-  <p class="text-justify">Un triángulo rectángulo es un tipo de triángulo que tiene un ángulo interior que mide 90
-    grados, es decir, un ángulo recto. Este tipo de triángulo es una de las clasificaciones de acuerdo a la medida de
-    sus ángulos interiores.
-    La principal característica del triángulo rectángulo es que tiene un lado de mayor longitud llamado
-    <b>hipotenusa</b> y otros dos denominados catetos cuya unión forma el ángulo recto.
-    <br><br>
-    Los lados de un triángulo rectángulo se llaman catetos e <b>hipotenusa</b>.
-    <br><br>
-    El Teorema de Pitágoras establece que en un triángulo rectángulo, el cuadrado de la <b>hipotenusa</b> es igual a la
-    suma de los cuadrados de los catetos.
-    <br><br>
-    Además, cualquier cuadrado separado en dos por alguna de sus diagonales se divide en dos triángulos rectángulos.
-    <br><br>
-    Hay dos tipos de triángulo rectángulo: el triángulo rectángulo isósceles y el triángulo rectángulo escaleno.
-    <br><br>
-    En resumen, un triángulo rectángulo es un triángulo que tiene un ángulo recto y se caracteriza por tener un lado de
-    mayor longitud llamado <b>hipotenusa</b> y otros dos llamados catetos.
-  </p>
-  <br>
-  <p>Dato de color: Si sientes que estas trabado, prueba en resolver las los sibolos $$θ ; β = x$$</p>
-  <p class="text-2xl"><b>Como se calcula (θ  ,  β)?</b></p>
-  <br>
-  <table>
-    <tr>
-      <td>Calcular θ (A-B)</td>
-      <td style="color: red;">$$\tan^{-1}θ * \frac{B}{A}$$</td>
-    </tr>
-    <tr>
-      <td>Calcular θ (C-B)</td>
-      <td style="color: red;">$$\sin^{-1}θ * \frac{C}{A}$$</td>
-    </tr>
-    <tr>
-      <td>Calcular θ (A-C)</td>
-      <td style="color: red;">$$\cos^{-1}θ * \frac{B}{C}$$</td>
-    </tr>
-    <tr>
-      <td>Calcular β (A-C)</td>
-      <td style="color: red;">$$\sin^{-1}θ * \frac{A}{C}$$</td>
-    </tr>
-    <tr>
-      <td>Calcular β (A-B)</td>
-      <td style="color: red;">$$\tan^{-1}θ * \frac{A}{B}$$</td>
-    </tr>
-    <tr>
-      <td>Calcular β (B-C)</td>
-      <td style="color: red;">$$\cos^{-1}θ * \frac{B}{C}$$</td>
-    </tr>
-  </table>
 <br>
-  <p class="text-2xl"><b>Como se calcula Cateto A, Cateto B y hipotenusa?</b></p>
-<br>
-<table>
-  <tr>
-    <td>Cateto A</td>
-    <td style="color: blue;">$$\sqrt[2]{{c^2}-{b^2}}$$ $$\frac {B}{\tanθ}$$ $$\tanβ * B$$ $$\cosβ * C$$ $$\sinβ * C$$</td>
-  </tr>
-  <tr>
-    <td>Cateto B</td>
-    <td style="color: blue;">$$\sqrt[2]{{c^2}-{a^2}}$$ $$\tanθ * A$$ $$\cosθ * C$$ $$\sinθ * C$$ $$\frac {A}{\tanθ}$$</td>
-  </tr>
-  <tr>
-    <td>Cateto C</td>
-    <td style="color: blue;">$$\sqrt[2]{{a^2}+{b^2}}$$ $$\tanθ * a$$ $$\frac {A}{\cosθ}$$ $$\frac {B}{\sinθ}$$ $$\frac {A}{\sinβ}$$ $$\frac {B}{\cosθ}$$</td>
-  </tr>
-  <tr>
-    <td>Calcular β </td>
-    <td style="color: blue;">$$\tan^{-1}θ * \frac{A}{B}$$ $$\cos^{-1}θ * \frac{B}{C}$$ $$180°-90°-θ$$</td>
-  </tr>
-  <tr>
-    <td>Calcular θ </td>
-    <td style="color: blue;">$$\tan^{-1} * \frac{B}{A}$$ $$\sin^{-1} * \frac{B}{C}$$ $$\cos^{-1} * \frac{A}{C}$$</td>
-  </tr>
-  <tr>
-    <td>Area (A = H)</td>
-    <td style="color: blue;">$$ \frac{B*H}{2}$$</td>
-  </tr>
-  <tr>
-    <td>Perímetro</td>
-    <td style="color: blue;">$$A+B+C$$</td>
-  </tr>
-</table>
+<div id="textoOculto" style="display: none;">
+
+</div>
   <script src="script.js"></script>
 </body>
 

@@ -3,6 +3,7 @@
 
 <head>
     <title>Lineales</title>
+    <meta charset="UTF-8">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom"></script>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -18,8 +19,8 @@
 </head>
 
 <body>
-
-
+<br>
+$$a+bx$$
     <div>
         <div>
             <label for="input-a">Coeficiente a:</label>
@@ -32,8 +33,34 @@
         </div>
         <br>
         <button onclick="updateChart()" class="btn btn-outline btn-primary">Graficar</button>
-        <button onclick="addNewLine()" class="btn btn-outline btn-primary" id="graf">Agregar funcion</button>
         <br>
+        <button onclick="addNewLine()" class="btn btn-outline btn-primary" id="graf">Agregar funcion</button>
+
+<div class="drawer">
+    <input id="my-drawer" type="checkbox" class="drawer-toggle" />
+    <div class="drawer-content">
+      <!-- Page content here -->
+      <label for="my-drawer" class="btn btn-primary drawer-button">Ver funciones</label>
+    </div> 
+    <div class="drawer-side">
+      <label for="my-drawer" class="drawer-overlay"></label>
+      <ul class="menu p-4 w-96 min-h-full bg-base-200 text-base-content" id="data-table">
+        <!-- Sidebar content here -->
+        <!-- <li>
+            <div class="flex flex-col"> 
+                <div><p>tittle</p></div>
+                <div class="flex flex-row gap-6">
+                    <button class="btn btn-info btn-outline">Editar</button>
+                    <button class="btn btn-error btn-outline">Eliminar</button>
+                </div>
+            </div>
+        </li> -->
+      </ul>
+    </div>
+  </div>
+  
+
+<br>
         <div id="graphContainer">
             <!-- El gráfico se generará aquí -->
           </div>
@@ -41,26 +68,23 @@
             <!-- La imagen generada se mostrará aquí -->
           </div>
           
-        <br>
     </div>
+    <button id="zoomX" class="btn btn-outline">+X</button>
+    <button id="reduceX" class="btn btn-outline">-X</button>
+    <p>UnidadesX: <span id="countX"></span></p>
+
+    <button id="zoomY" class="btn btn-outline">+Y</button>
+    <button id="reduceY" class="btn btn-outline">-Y</button>
+    <p>UnidadesY: <span id="countY"></span></p>
+    <br>
     <div>
         <canvas id="graph" height="300px"></canvas>
     </div>
     <br><br>
-    <button onclick="exportToPNG()"  class="btn btn-outline btn-primary">Crear Imagen</button>
+    <button onclick="exportToPNG()" class="btn btn-outline btn-primary">Crear Imagen</button>
     <br><br>
-
-    <table id="data-table">
-        <colgroup span="4"></colgroup>
-        <tr>
-          <th>Color</th>
-          <th>Funcion</th>
-          <th>eliminar</th>
-        </tr>
-      </table>
 <div class="order-solid border-2 border-red-950">
 <b><p class="text-2xl">Resultado:</p></b>
-
     <p id="xCrossings"></p>
     <p id="yCrossings"></p>
     <p id="image"></p>
@@ -70,7 +94,6 @@
     <p id="concre"></p>
     <p id="condecre"></p>
     <p id="czero"></p>
-    <br>
 </div>
 <br>
 <h1 class="text-2xl">Imagen creada:</h1>

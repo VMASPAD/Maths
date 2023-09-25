@@ -387,17 +387,17 @@ function mostrarTexto() {
     document.getElementById("textoOculto").innerHTML = `
       <div>
         <br>
-        <input type="text" id="term1" class="w-8" style="display: inline-block;">
+        <input type="number" id="term1" class="w-8" style="display: inline-block;">
         <label for="term1" style="display: inline-block;">$$x^{2}$$</label>
         
-        <input type="text" id="term2" class="w-8" style="display: inline-block;">
+        <input type="number" id="term2" class="w-8" style="display: inline-block;">
         <label for="term2" style="display: inline-block;">$$x$$</label>
         
-        <input type="text" id="term3" class="w-8" style="display: inline-block;">
+        <input type="number" id="term3" class="w-8" style="display: inline-block;">
         <label for="term3" style="display: inline-block;">$$C$$</label>
         <br>
         <label for="coeficientes">Termino evauluativo / Raiz</label>
-        <input type="text" id="rootX" class="w-8"><br>
+        <input type="number" id="rootX" class="w-8"><br>
         <button onclick="rufini()">Calcular</button>
         <br>
         <h2>Resultado:</h2>
@@ -411,21 +411,21 @@ function mostrarTexto() {
     document.getElementById("textoOculto").innerHTML = `
 <div>
 <br>
-<input type="text" id="term1" class="w-8" style="display: inline-block;">
+<input type="number" id="term1" class="w-8" style="display: inline-block;">
     <label for="term1" style="display: inline-block;">$$x^3$$</label>
     
-<input type="text" id="term2" class="w-8" style="display: inline-block;">
+<input type="number" id="term2" class="w-8" style="display: inline-block;">
     <label for="term1" style="display: inline-block;">$$x^2$$</label>
     
- <input type="text" id="term3" class="w-8" style="display: inline-block;">
+ <input type="number" id="term3" class="w-8" style="display: inline-block;">
     <label for="term2" style="display: inline-block;">$$x$$</label>
    
-<input type="text" id="term4" class="w-8" style="display: inline-block;">
+<input type="number" id="term4" class="w-8" style="display: inline-block;">
     <label for="term3" style="display: inline-block;">$$C$$</label>
     
     <br>
     <label for="coeficientes">Termino evauluativo / Raiz</label>
-    <input type="text" id="rootX" class="w-8"><br>
+    <input type="number" id="rootX" class="w-8"><br>
     <button onclick="rufini()">Calcular</button>
     <br>
     <h2>Resultado:</h2>
@@ -437,24 +437,24 @@ function mostrarTexto() {
     document.getElementById("textoOculto").innerHTML = `
     <div>
     <br>
-    <input type="text" id="term1" class="w-8" style="display: inline-block;">
+    <input type="number" id="term1" class="w-8" style="display: inline-block;">
         <label for="term1" style="display: inline-block;">$$x^4$$</label>
         
-        <input type="text" id="term2" class="w-8" style="display: inline-block;">
+        <input type="number" id="term2" class="w-8" style="display: inline-block;">
         <label for="term1" style="display: inline-block;">$$x^3$$</label>
         
-        <input type="text" id="term3" class="w-8" style="display: inline-block;">
+        <input type="number" id="term3" class="w-8" style="display: inline-block;">
         <label for="term1" style="display: inline-block;">$$x^2$$</label>
         
-        <input type="text" id="term4" class="w-8" style="display: inline-block;">
+        <input type="number" id="term4" class="w-8" style="display: inline-block;">
         <label for="term2" style="display: inline-block;">$$x$$</label>
         
-        <input type="text" id="term5" class="w-8" style="display: inline-block;">
+        <input type="number" id="term5" class="w-8" style="display: inline-block;">
         <label for="term3" style="display: inline-block;">C</label>
         
         <br>
         <label for="coeficientes">Termino evauluativo / Raiz</label>
-        <input type="text" id="rootX" class="w-8"><br>
+        <input type="number" id="rootX" class="w-8"><br>
         <button onclick="rufini()">Calcular</button>
         <br>
         <h2>Resultado:</h2>
@@ -466,27 +466,27 @@ function mostrarTexto() {
     document.getElementById("textoOculto").innerHTML = `
     <div>
     <br>
-    <input type="text" id="term1" class="w-8" style="display: inline-block;">
+    <input type="number" id="term1" class="w-8" style="display: inline-block;">
         <label for="term1" style="display: inline-block;">$$x^5$$</label>
         
-        <input type="text" id="term2" class="w-8" style="display: inline-block;">
+        <input type="number" id="term2" class="w-8" style="display: inline-block;">
         <label for="term1" style="display: inline-block;">$$x^4$$</label>
         
-        <input type="text" id="term3" class="w-8">
+        <input type="number" id="term3" class="w-8">
         <label for="term1" style="display: inline-block;">$$x^3$$</label>
         
-        <input type="text" id="term4" class="w-8" style="display: inline-block;">
+        <input type="number" id="term4" class="w-8" style="display: inline-block;">
         <label for="term1" style="display: inline-block;">$$x^2$$</label>
 
-        <input type="text" id="term5" class="w-8" style="display: inline-block;">
+        <input type="number" id="term5" class="w-8" style="display: inline-block;">
         <label for="term2" style="display: inline-block;">$$x$$</label>
         
-        <input type="text" id="term6" class="w-8" style="display: inline-block;">
+        <input type="number" id="term6" class="w-8" style="display: inline-block;">
         <label for="term3" style="display: inline-block;">C</label>
         
         <br>
         <label for="coeficientes">Termino evauluativo / Raiz</label>
-        <input type="text" id="rootX" class="w-8"><br>
+        <input type="number" id="rootX" class="w-8"><br>
 
         <button onclick="rufini()">Calcular</button>
         <br>
@@ -499,30 +499,30 @@ function mostrarTexto() {
     document.getElementById("textoOculto").innerHTML = `
     <div>
     <br>
-    <input type="text" id="term1" class="w-8" class="w-8" style="display: inline-block;">
+    <input type="number" id="term1" class="w-8" class="w-8" style="display: inline-block;">
         <label for="term1" class="w-8" style="display: inline-block;">$$x^6$$</label>
         
-        <input type="text" id="term2" class="w-8" class="w-8" style="display: inline-block;">
+        <input type="number" id="term2" class="w-8" class="w-8" style="display: inline-block;">
         <label for="term1" class="w-8" style="display: inline-block;">$$x^5$$</label>
         
-        <input type="text" id="term3" class="w-8" class="w-8" style="display: inline-block;">
+        <input type="number" id="term3" class="w-8" class="w-8" style="display: inline-block;">
         <label for="term1" class="w-8" style="display: inline-block;">$$x^4$$</label>
 
-        <input type="text" id="term4" class="w-8" class="w-8" style="display: inline-block;">
+        <input type="number" id="term4" class="w-8" class="w-8" style="display: inline-block;">
         <label for="term1" class="w-8" style="display: inline-block;">$$x^3$$</label>
         
-        <input type="text" id="term5" class="w-8" class="w-8" style="display: inline-block;">
+        <input type="number" id="term5" class="w-8" class="w-8" style="display: inline-block;">
         <label for="term1" class="w-8" style="display: inline-block;">$$x^2$$</label>
 
-        <input type="text" id="term6" class="w-8" class="w-8" style="display: inline-block;">
+        <input type="number" id="term6" class="w-8" class="w-8" style="display: inline-block;">
         <label for="term2" class="w-8" style="display: inline-block;">$$x$$</label>
         
-        <input type="text" id="term7" class="w-8" class="w-8" style="display: inline-block;">
+        <input type="number" id="term7" class="w-8" class="w-8" style="display: inline-block;">
         <label for="term3" class="w-8" style="display: inline-block;">$$C$$</label>
         
         <br>
         <label for="coeficientes">Termino evauluativo / Raiz</label>
-        <input type="text" id="rootX" class="w-8"><br>
+        <input type="number" id="rootX" class="w-8"><br>
         <button onclick="rufini()">Calcular</button>
         <br>
         <h2>Resultado:</h2>
@@ -534,33 +534,33 @@ function mostrarTexto() {
     document.getElementById("textoOculto").innerHTML = `
     <div>
     <br>
-    <input type="text" id="term1" class="w-8" class="w-8" style="display: inline-block;">
+    <input type="number" id="term1" class="w-8" class="w-8" style="display: inline-block;">
         <label for="term1" class="w-8" style="display: inline-block;">$$x^7$$</label>
         
-        <input type="text" id="term2" class="w-8" class="w-8" style="display: inline-block;">
+        <input type="number" id="term2" class="w-8" class="w-8" style="display: inline-block;">
         <label for="term1" class="w-8" style="display: inline-block;">$$x^6$$</label>
         
-        <input type="text" id="term3" class="w-8" class="w-8" style="display: inline-block;">
+        <input type="number" id="term3" class="w-8" class="w-8" style="display: inline-block;">
         <label for="term1" class="w-8" style="display: inline-block;">$$x^5$$</label>
 
-        <input type="text" id="term4" class="w-8" class="w-8" style="display: inline-block;">
+        <input type="number" id="term4" class="w-8" class="w-8" style="display: inline-block;">
         <label for="term1" class="w-8" style="display: inline-block;">$$x^4$$</label>
         
-        <input type="text" id="term5" class="w-8" class="w-8" style="display: inline-block;">
+        <input type="number" id="term5" class="w-8" class="w-8" style="display: inline-block;">
         <label for="term1" class="w-8" style="display: inline-block;">$$x^3$$</label>
 
-        <input type="text" id="term6" class="w-8" class="w-8" style="display: inline-block;">
+        <input type="number" id="term6" class="w-8" class="w-8" style="display: inline-block;">
         <label for="term1" class="w-8" style="display: inline-block;">$$x^2$$</label>
 
-        <input type="text" id="term7" class="w-8" class="w-8" style="display: inline-block;">
+        <input type="number" id="term7" class="w-8" class="w-8" style="display: inline-block;">
         <label for="term2" class="w-8" style="display: inline-block;">$$x$$</label>
         
-        <input type="text" id="term8" class="w-8" class="w-8" style="display: inline-block;">
+        <input type="number" id="term8" class="w-8" class="w-8" style="display: inline-block;">
         <label for="term3">C</label>
         
         <br>
         <label for="coeficientes">Termino evauluativo / Raiz</label>
-        <input type="text" id="rootX" class="w-8"><br>
+        <input type="number" id="rootX" class="w-8"><br>
         <button onclick="rufini()">Calcular</button>
         <br>
         <h2>Resultado:</h2>
@@ -572,36 +572,36 @@ function mostrarTexto() {
     document.getElementById("textoOculto").innerHTML = `
     <div>
     <br>
-    <input type="text" id="term1" class="w-8">
+    <input type="number" id="term1" class="w-8">
         <label for="term1" class="w-8" style="display: inline-block;">$$x^8$$</label>
         
-        <input type="text" id="term2" class="w-8" class="w-8" style="display: inline-block;">
+        <input type="number" id="term2" class="w-8" class="w-8" style="display: inline-block;">
         <label for="term1" class="w-8" style="display: inline-block;">$$x^7$$</label>
         
-        <input type="text" id="term3" class="w-8" class="w-8" style="display: inline-block;">
+        <input type="number" id="term3" class="w-8" class="w-8" style="display: inline-block;">
         <label for="term1" class="w-8" style="display: inline-block;">$$x^6$$</label>
 
-        <input type="text" id="term4" class="w-8" class="w-8" style="display: inline-block;">
+        <input type="number" id="term4" class="w-8" class="w-8" style="display: inline-block;">
         <label for="term1" class="w-8" style="display: inline-block;">$$x^5$$</label>
 
-        <input type="text" id="term5" class="w-8" class="w-8" style="display: inline-block;">
+        <input type="number" id="term5" class="w-8" class="w-8" style="display: inline-block;">
         <label for="term1" class="w-8" style="display: inline-block;">$$x^4$$</label>
         
-        <input type="text" id="term6" class="w-8" class="w-8" style="display: inline-block;">
+        <input type="number" id="term6" class="w-8" class="w-8" style="display: inline-block;">
         <label for="term1" class="w-8" style="display: inline-block;">$$x^3$$</label>
 
-        <input type="text" id="term7" class="w-8" class="w-8" style="display: inline-block;">
+        <input type="number" id="term7" class="w-8" class="w-8" style="display: inline-block;">
         <label for="term1" class="w-8" style="display: inline-block;">$$x^2$$</label>
 
-        <input type="text" id="term8" class="w-8" class="w-8" style="display: inline-block;">
+        <input type="number" id="term8" class="w-8" class="w-8" style="display: inline-block;">
         <label for="term2" class="w-8" style="display: inline-block;">$$x$$</label>
         
-        <input type="text" id="term9" class="w-8" class="w-8" style="display: inline-block;">
+        <input type="number" id="term9" class="w-8" class="w-8" style="display: inline-block;">
         <label for="term3">C</label>
         
         <br>
         <label for="coeficientes">Termino evauluativo / Raiz</label>
-        <input type="text" id="rootX" class="w-8"><br>
+        <input type="number" id="rootX" class="w-8"><br>
         <button onclick="rufini()">Calcular</button>
         <br>
         <h2>Resultado:</h2>
@@ -613,39 +613,39 @@ function mostrarTexto() {
     document.getElementById("textoOculto").innerHTML = `
     <div>
     <br>
-    <input type="text" id="term1" class="w-8" class="w-8" style="display: inline-block;">
+    <input type="number" id="term1" class="w-8" class="w-8" style="display: inline-block;">
         <label for="term1" class="w-8" style="display: inline-block;">$$x^9$$</label>
         
-        <input type="text" id="term2" class="w-8" class="w-8" style="display: inline-block;">
+        <input type="number" id="term2" class="w-8" class="w-8" style="display: inline-block;">
         <label for="term1" class="w-8" style="display: inline-block;">$$x^8$$</label>
         
-        <input type="text" id="term3" class="w-8" class="w-8" style="display: inline-block;">
+        <input type="number" id="term3" class="w-8" class="w-8" style="display: inline-block;">
         <label for="term1" class="w-8" style="display: inline-block;">$$x^7$$</label>
 
-        <input type="text" id="term4" class="w-8" class="w-8" style="display: inline-block;">
+        <input type="number" id="term4" class="w-8" class="w-8" style="display: inline-block;">
         <label for="term1" class="w-8" style="display: inline-block;">$$x^6$$</label>
 
-        <input type="text" id="term5" class="w-8" class="w-8" style="display: inline-block;">
+        <input type="number" id="term5" class="w-8" class="w-8" style="display: inline-block;">
         <label for="term1" class="w-8" style="display: inline-block;">$$x^5$$</label>
 
-        <input type="text" id="term6" class="w-8" class="w-8" style="display: inline-block;">
+        <input type="number" id="term6" class="w-8" class="w-8" style="display: inline-block;">
         <label for="term1" class="w-8" style="display: inline-block;">$$x^4$$</label>
         
-        <input type="text" id="term7" class="w-8" class="w-8" style="display: inline-block;">
+        <input type="number" id="term7" class="w-8" class="w-8" style="display: inline-block;">
         <label for="term1" class="w-8" style="display: inline-block;">$$x^3$$</label>
 
-        <input type="text" id="term8" class="w-8" class="w-8" style="display: inline-block;">
+        <input type="number" id="term8" class="w-8" class="w-8" style="display: inline-block;">
         <label for="term1" class="w-8" style="display: inline-block;">$$x^2$$</label>
 
-        <input type="text" id="term9" class="w-8" class="w-8" style="display: inline-block;">
+        <input type="number" id="term9" class="w-8" class="w-8" style="display: inline-block;">
         <label for="term2" class="w-8" style="display: inline-block;">$$x$$</label>
         
-        <input type="text" id="term10" class="w-8">
+        <input type="number" id="term10" class="w-8">
         <label for="term3">C</label>
         
         <br>
         <label for="coeficientes">Termino evauluativo / Raiz</label>
-        <input type="text" id="rootX" class="w-8"><br>
+        <input type="number" id="rootX" class="w-8"><br>
         <button onclick="rufini()">Calcular</button>
         <br>
         <h2>Resultado:</h2>
@@ -657,42 +657,42 @@ function mostrarTexto() {
     document.getElementById("textoOculto").innerHTML = `
     <div>
     <br>
-    <input type="text" id="term1" class="w-8" class="w-8" style="display: inline-block;">
+    <input type="number" id="term1" class="w-8" class="w-8" style="display: inline-block;">
         <label for="term1" class="w-8" style="display: inline-block;">$$x^{10}$$</label>
         
-        <input type="text" id="term2" class="w-8" class="w-8" style="display: inline-block;">
+        <input type="number" id="term2" class="w-8" class="w-8" style="display: inline-block;">
         <label for="term1" class="w-8" style="display: inline-block;">$$x^9$$</label>
         
-        <input type="text" id="term3" class="w-8" class="w-8" style="display: inline-block;">
+        <input type="number" id="term3" class="w-8" class="w-8" style="display: inline-block;">
         <label for="term1" class="w-8" style="display: inline-block;">$$x^8$$</label>
 
-        <input type="text" id="term4" class="w-8" class="w-8" style="display: inline-block;">
+        <input type="number" id="term4" class="w-8" class="w-8" style="display: inline-block;">
         <label for="term1" class="w-8" style="display: inline-block;">$$x^7$$</label>
 
-        <input type="text" id="term5" class="w-8" class="w-8" style="display: inline-block;">
+        <input type="number" id="term5" class="w-8" class="w-8" style="display: inline-block;">
         <label for="term1" class="w-8" style="display: inline-block;">$$x^6$$</label>
 
-        <input type="text" id="term6" class="w-8" class="w-8" style="display: inline-block;">
+        <input type="number" id="term6" class="w-8" class="w-8" style="display: inline-block;">
         <label for="term1" class="w-8" style="display: inline-block;">$$x^5$$</label>
 
-        <input type="text" id="term7" class="w-8" class="w-8" style="display: inline-block;">
+        <input type="number" id="term7" class="w-8" class="w-8" style="display: inline-block;">
         <label for="term1" class="w-8" style="display: inline-block;">$$x^4$$</label>
         
-        <input type="text" id="term8" class="w-8" class="w-8" style="display: inline-block;">
+        <input type="number" id="term8" class="w-8" class="w-8" style="display: inline-block;">
         <label for="term1" class="w-8" style="display: inline-block;">$$x^3$$</label>
 
-        <input type="text" id="term9" class="w-8" class="w-8" style="display: inline-block;">
+        <input type="number" id="term9" class="w-8" class="w-8" style="display: inline-block;">
         <label for="term1" class="w-8" style="display: inline-block;">$$x^2$$</label>
 
-        <input type="text" id="term10" class="w-8" class="w-8" style="display: inline-block;">
+        <input type="number" id="term10" class="w-8" class="w-8" style="display: inline-block;">
         <label for="term2" class="w-8" style="display: inline-block;">$$x$$</label>
         
-        <input type="text" id="term11" class="w-8" class="w-8" style="display: inline-block;">
+        <input type="number" id="term11" class="w-8" class="w-8" style="display: inline-block;">
         <label for="term3" class="w-8" style="display: inline-block;">C</label>
         
         <br>
         <label for="coeficientes">Termino evauluativo / Raiz</label>
-        <input type="text" id="rootX" class="w-8"><br>
+        <input type="number" id="rootX" class="w-8"><br>
         <button onclick="rufini()">Calcular</button>
         <br>
         <h2>Resultado:</h2>

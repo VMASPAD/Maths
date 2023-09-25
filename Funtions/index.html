@@ -3,6 +3,7 @@
 
 <head>
     <title>Calculadora de Parábolas Cuadráticas</title>
+    <meta charset="UTF-8">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom"></script>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -38,6 +39,31 @@
             <button onclick="updateGraph()" class="btn btn-outline">Calcular</button>
         </div>
     </article>
+    <button onclick="addNewLine()" class="btn btn-outline btn-primary" id="graf">Agregar función</button>
+
+
+    <div class="drawer">
+        <input id="my-drawer" type="checkbox" class="drawer-toggle" />
+        <div class="drawer-content">
+          <!-- Page content here -->
+          <label for="my-drawer" class="btn btn-primary drawer-button">Ver funciones</label>
+        </div> 
+        <div class="drawer-side">
+          <label for="my-drawer" class="drawer-overlay"></label>
+          <ul class="menu p-4 w-96 min-h-full bg-base-200 text-base-content" id="function-list">
+
+          </ul>
+        </div>
+      </div>
+
+    <button id="zoomX" class="btn btn-outline">+X</button>
+    <button id="reduceX" class="btn btn-outline">-X</button>
+    <p>UnidadesX: <span id="countX"></span></p>
+
+    <button id="zoomY" class="btn btn-outline">+Y</button>
+    <button id="reduceY" class="btn btn-outline">-Y</button>
+    <p>UnidadesY: <span id="countY"></span></p>
+
     <div id="grid graph-container grid">
         <canvas id="graph" height="400"></canvas>
     </div><br>
@@ -60,8 +86,7 @@
         <p class="marginBotLeft"> C°: <span id="zero-set"></span></p>
         <p class="marginBotLeft"> Vértice: (<span id="x-vertex"></span>, <span id="y-vertex"></span>)</p>
         <p class="marginBotLeft"> La Ordenada al origen: <span id="origin"></span></p>
-        <p class="marginBotLeft"> Intersección con los ejes (XvY): <span id="zero-setEjes"> ;</span><span
-                id="y-intercept"></span></p>
+        <p class="marginBotLeft"> Intersección con los ejes (XvY): <span id="zero-setEjes"> ;</span><span id="y-intercept"></span></p>
     </div>
 
     <ul>

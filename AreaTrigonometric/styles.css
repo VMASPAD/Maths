@@ -5,3 +5,12 @@ body{
     text-align: center;
     margin: 0 auto !important;
 }
+
+.gridResults{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+}
+.cell {
+    border: 1px solid #000;
+    padding: 8px;
+  }

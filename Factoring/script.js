@@ -123,16 +123,16 @@ function grade3() {
     <div>
     <h1>Calculadora de Ecuaciones Polinómicas</h1>
     <label for="inputA">Coeficiente 'a':</label>
-    <input type="number" id="inputA"><br>
+    <input type="number" id="inputA" class="input input-bordered input-success w-full max-w-xs"><br>
   
     <label for="inputB">Coeficiente 'b':</label>
-    <input type="number" id="inputB"><br>
+    <input type="number" id="inputB" class="input input-bordered input-success w-full max-w-xs"><br>
   
     <label for="inputC">Coeficiente 'c':</label>
-    <input type="number" id="inputC"><br>
-  
-    <button onclick="grade2()">Factorizar</button>
-  
+    <input type="number" id="inputC" class="input input-bordered input-success w-full max-w-xs"><br>
+  <br>
+    <button onclick="grade2()" class="btn btn-outline btn-primary">Factorizar</button>
+    <br>
     <h2>Resultado:</h2>
     <p id="result"></p>
     </div>
